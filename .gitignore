@@ -1,3 +1,5 @@
+*.sqlite3
+*.qyc
 core.Microsoft*
 core.mongo*
 core.python*
