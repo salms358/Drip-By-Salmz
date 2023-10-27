@@ -1,0 +1,64 @@
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav w-auto mx-auto">
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All Products
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="{% url 'products' %}" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}" class="dropdown-item ">By Category</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Clothing
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+                <a href="{% url 'products' %}?category=Cargos" class="dropdown-item">Cargos</a>
+                <a href="{% url 'products' %}?category=Shoes" class="dropdown-item">Shoes</a>
+                <a href="{% url 'products' %}?category=Trapstar" class="dropdown-item">Trapstar</a>
+                <a href="{% url 'products' %}?category=Cargos,Shoes,Trapstar" class="dropdown-item">All Clothing</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="brands-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Brands
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="brands-link">
+                <a href="{% url 'products' %}" class="dropdown-item">Nike</a>
+                <a href="{% url 'products' %}" class="dropdown-item">Corteiz</a>
+                <a href="{% url 'products' %}" class="dropdown-item">Trapstar</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All Brands</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="winter-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Winter Is Coming
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="winter-link">
+                <a href="{% url 'products' %}" class="dropdown-item">Jumpers</a>
+                <a href="{% url 'products' %}" class="dropdown-item">Boots</a>
+                <a href="{% url 'products' %}" class="dropdown-item">Coats</a>
+                <a href="{% url 'products' %}" class="dropdown-item">Puffer Jackets</a>
+                <a href="{% url 'products' %}" class="dropdown-item">Shop All Winter Items</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="sneaker-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sneakers
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="sneaker-link">
+                <a href="{% url 'products' %}" class="dropdown-item">Jordan 1s</a>
+                <a href="{% url 'products' %}" class="dropdown-item">Jordan 4s</a>
+                <a href="{% url 'products' %}" class="dropdown-item">Airforces</a>
+                <a href="{% url 'products' %}" class="dropdown-item">Timberlands</a>
+                <a href="{% url 'products' %}" class="dropdown-item">Yeezys</a>
+            </div>
+        </li>
+    </ul>
+</div>
