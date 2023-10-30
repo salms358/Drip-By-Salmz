@@ -29,10 +29,12 @@
                 Brands
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="brands-link">
-                <a href="{% url 'products' %}" class="dropdown-item">Nike</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Corteiz</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Trapstar</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Brands</a>
+                <a href="{% url 'products' %}?category=Timberland" class="dropdown-item">Timberland</a> 
+                <a href="{% url 'products' %}?category=Jordans" class="dropdown-item">Jordans</a> 
+                <a href="{% url 'products' %}?category=Nike" class="dropdown-item">Nike</a> 
+                <a href="{% url 'products' %}?category=Corteiz" class="dropdown-item">Corteiz</a>
+                <a href="{% url 'products' %}?category=Trapstar" class="dropdown-item">Trapstar</a>
+                <a href="{% url 'products' %}?category=Timberland,Jordans,Nike,Corteiz,Trapstar" class="dropdown-item">All Brands</a>
             </div>
         </li>
 
@@ -41,11 +43,11 @@
                 Winter Is Coming
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="winter-link">
-                <a href="{% url 'products' %}" class="dropdown-item">Jumpers</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Boots</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Coats</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Puffer Jackets</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Shop All Winter Items</a>
+                <a href="{% url 'products' %}?category=Jumpers" class="dropdown-item">Jumpers</a>
+                <a href="{% url 'products' %}?category=Shoes" class="dropdown-item">Boots</a>
+                <a href="{% url 'products' %}?category=Coats" class="dropdown-item">Coats</a>
+                <a href="{% url 'products' %}?category=Jackets" class="dropdown-item">Puffer Jackets</a>
+                <a href="{% url 'products' %}?category=Jumpers,Shoes,Coats,Jackets" class="dropdown-item">Shop All Winter Items</a>
             </div>
         </li>
         <li class="nav-item dropdown">
