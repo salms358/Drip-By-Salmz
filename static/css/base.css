@@ -275,6 +275,20 @@ input[name='q']::placeholder {
     width: 100%;
 }
 
+a.category-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+.card-body {
+    border: 1px solid #ccc; /* Add a border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow for a border effect */
+    height: 100%; /* Set a fixed height to align cards */
+    display: flex; /* Enable flex layout for card contents */
+    flex-direction: column;
+}
+.btt-link {
+    cursor: pointer;
+}
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {

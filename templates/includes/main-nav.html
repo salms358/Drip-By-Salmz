@@ -5,9 +5,9 @@
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{% url 'products' %}" class="dropdown-item">By Price</a>
-                <a href="{% url 'products' %}" class="dropdown-item ">By Rating</a>
-                <a href="{% url 'products' %}" class="dropdown-item ">By Category</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -55,11 +55,13 @@
                 Sneakers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="sneaker-link">
-                <a href="{% url 'products' %}" class="dropdown-item">Jordan 1s</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Jordan 4s</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Airforces</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Timberlands</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Yeezys</a>
+                <a href="{% url 'products' %}?category=Jordan 1s" class="dropdown-item">Jordan 1s</a>
+                <a href="{% url 'products' %}?category=Jordan 4s" class="dropdown-item">Jordan 4s</a>
+                <a href="{% url 'products' %}?category=Airforces" class="dropdown-item">Airforces</a>
+                <a href="{% url 'products' %}?category=Timberlands" class="dropdown-item">Timberlands</a>
+                <a href="{% url 'products' %}?category=Yeezys" class="dropdown-item">Yeezys</a>
+                <a href="{% url 'products' %}?category=Jordan 1s,Jordan 4s,Airforces,Timberlands,Yeezys" class="dropdown-item">All Sneakers</a>
+
             </div>
         </li>
     </ul>
