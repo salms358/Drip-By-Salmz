@@ -39,6 +39,7 @@ body {
     color: white;
 }
 
+
 .btn-outline-black {
     background: white;
     color: black !important; /* use important to override link colors for <a> elements */
@@ -279,7 +280,7 @@ a.category-badge > span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
 }
-.card-body {
+.card-image {
     border: 1px solid #ccc; /* Add a border */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow for a border effect */
     height: 100%; /* Set a fixed height to align cards */
