@@ -1,0 +1,24 @@
+Hello {{ order.full_name }}
+
+This is a email confirming your order for Drip By Salmz. Your order details are below:
+
+
+Order Number: {{ order.order_number }}
+
+Order Date: {{ order.order_date }}
+
+Order Total: {{ order.order_total }}
+
+Delivery: {{ order.delivery_cost }}
+
+Grand Total: {{ order.grand_total }}
+
+Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}
+
+We have your number on file as {{ order.phone_number }}.
+
+If you have any concerns feel free to email us at {{ contact_email }}
+
+Again thanks for shopping with us 
+
+Yours Sincerely Salma Ahmed (CEO)

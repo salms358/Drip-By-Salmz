@@ -99,7 +99,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
+        
         order_form = OrderForm()
 
     if not stripe_public_key:
