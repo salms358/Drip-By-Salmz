@@ -3,6 +3,9 @@ from django.shortcuts import render, redirect
 from .forms import SubscribeForm
 
 def newsletter(request):
+    """
+    Newsletter form request 
+    """
     if request.method == 'POST':
         form = SubscribeForm(request.POST)
         if form.is_valid():
@@ -12,7 +15,9 @@ def newsletter(request):
     else:
         form = SubscribeForm()
 
-    return render(request, 'newsletter/newsletter_success.html', {'form': form})
+    return render(request, 'newsletter/newsletter.html', {'form': form})
 
 def newsletter_success(request):
+    """
+    """
     return render(request, 'newsletter/newsletter_success.html')
