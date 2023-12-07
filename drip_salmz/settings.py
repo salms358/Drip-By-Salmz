@@ -29,7 +29,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [ '8000-salms358-dripbysalmz-yxddj8i653j.ws-eu106.gitpod.io']
 
@@ -193,7 +193,8 @@ if 'USE_AWS' in os.environ:
     AWS_S3_REGION_NAME = 'us-east-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
 
 
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
