@@ -1,1 +1,1 @@
-web : gunicorn drip_salmz.wsgi:application
+web: gunicorn drip_salmz.wsgi:application
