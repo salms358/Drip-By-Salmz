@@ -33,7 +33,7 @@ DEBUG = False
 
 #ALLOWED_HOSTS = [ 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
 
-ALLOWED_HOSTS = [ 'https://dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = [ 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
 
 
 # Application definition
