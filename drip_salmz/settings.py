@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     'profiles',
     'newsletter',
-    'cloudinary_storage'
+    'dj3-cloudinary-storage'
     'cloudinary',
     
 ]
