@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'cloudinary_storage',
+    'cloudinary',
     'home',
     'products',
     'bag',
@@ -52,8 +54,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     'profiles',
     'newsletter',
-    'dj3-cloudinary-storage'
-    'cloudinary',
+    'storages',
     
 ]
 
