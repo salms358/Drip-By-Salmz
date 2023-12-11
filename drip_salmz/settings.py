@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import dj_database_url
 import os
 if os.path.exists("env.py"):
-  import env 
+    import env 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,16 +24,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-#DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG1 = 'DEVELOPMENT' in os.environ
 
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-#ALLOWED_HOSTS = [ 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
-
 ALLOWED_HOSTS = [ 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
+
+
 
 
 # Application definition
@@ -182,7 +182,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
@@ -214,7 +214,7 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-
+ 
 
 
 FREE_DELIVERY_THRESHOLD = 50
