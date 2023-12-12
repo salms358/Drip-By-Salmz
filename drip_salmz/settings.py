@@ -36,6 +36,8 @@ ALLOWED_HOSTS = [ 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
 
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
