@@ -29,11 +29,11 @@ DEBUG1 = 'DEVELOPMENT' in os.environ
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-#ALLOWED_HOSTS = [ 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = [ 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
 
-ALLOWED_HOSTS = [ '8000-salms358-dripbysalmz-yxddj8i653j.ws-eu106.gitpod.io']
+#ALLOWED_HOSTS = [ '8000-salms358-dripbysalmz-yxddj8i653j.ws-eu106.gitpod.io']
 
 
 
