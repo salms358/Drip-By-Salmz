@@ -1,0 +1,31 @@
+/* My reviews */
+.review-product img {
+    height: 75px;
+    width: 75px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* Reviews form */
+
+#review-form .form-check {
+    display: inline-block !important;
+    margin-right: 16px;
+}
+
+#review-form input:not(.form-check-input),
+#review-form textarea {
+    margin-bottom: 12px;
+    background-color: #f4f6fc;
+    padding: 8px 12px;
+}
+
+#review-form input:not(.form-check-input) {
+    height: 40px;
+}
+
+#review-form input:not(.form-check-input):focus,
+#review-form textarea:focus {
+    background-color: #f4f6fc;
+}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'comments/css/comments.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <!-- Page overlay to cover image -->
+    <div class="overlay"></div>
+    <div class="container-fluid">
+
+        <!-- Reviews main header -->
+        <div class="row py-4 border-top border-bottom">
+            <div class="col text-center">
+                <h1 class="logo-text">My Comments</h1>
+            </div>
+        </div>
+
+        <!-- My reviews -->
+        <div class="row">
+            <div class="col-10 offset-1 col-lg-8 offset-lg-2">
+
+                <div class="review-container mt-4">
+                    {% if comments %}
+                        {% for comment in comments %}
+                            <div class="my-4 pb-4 border-bottom">
+                                <div class="review-product">
+                                    <a class="link-blue" href="{% url 'product_detail' comment.product.id %}">
+                                        <img class="border rounded" src="{{ comment.product.image.url }}" alt="{{ comment.product.name }}">
+                                        <h4 class="d-inline py-auto">{{review.product.name }}</h4>
+                                    </a>
+                                </div>
+                                <h5>{{ comment.title }}</h5>
+                                <p>{{ comment.content }}</p>
+                                <p class="c--light-blue"><i class="fas fa-star me-1"></i>{{ review.rating }} / 5</p>
+                                <p class="text-muted small d-inline">Created on {{ review.created_on }}</p>
+                                <small class="ms-3 float-end">
+                                    <a href="{% url 'edit_comment' comment.id %}" class="update-link link-dark">Edit</a> |
+                                    <a href="{% url 'delete_comment' comment.id %}" class="remove-item link-blue float-right" id="remove_{{ item.item_id }}">Delete</a>
+                                </small>
+                            </div>
+                        {% endfor %}              
+                    {% else %}
+                        <p class="lead mb-5">You haven't commented any products yet.</p>
+                        <a href="{% url 'products' %}" class="btn btn-main hvr-back-pulse btn-lg">
+                            <i class="fas fa-chevron-left"></i>
+                            <span class="text-uppercase">Explore Products</span>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
