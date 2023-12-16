@@ -4,6 +4,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from webhooks import webhook 
+from .views import handler404
 
 
 urlpatterns = [
@@ -19,3 +20,4 @@ urlpatterns = [
     path('likes/', include('likes.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+handler404 = 'boutique_ado.views.handler404'
