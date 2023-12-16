@@ -29,13 +29,13 @@
                                 <div class="review-product">
                                     <a class="link-blue" href="{% url 'product_detail' comment.product.id %}">
                                         <img class="border rounded" src="{{ comment.product.image.url }}" alt="{{ comment.product.name }}">
-                                        <h4 class="d-inline py-auto">{{review.product.name }}</h4>
+                                        <h4 class="d-inline py-auto">{{comment.product.name }}</h4>
                                     </a>
                                 </div>
                                 <h5>{{ comment.title }}</h5>
                                 <p>{{ comment.content }}</p>
-                                <p class="c--light-blue"><i class="fas fa-star me-1"></i>{{ review.rating }} / 5</p>
-                                <p class="text-muted small d-inline">Created on {{ review.created_on }}</p>
+                                <p class="c--light-blue"><i class="fas fa-star me-1"></i>{{ comment.rating }} / 5</p>
+                                <p class="text-muted small d-inline">Created on {{ commentcreated_on }}</p>
                                 <small class="ms-3 float-end">
                                     <a href="{% url 'edit_comment' comment.id %}" class="update-link link-dark">Edit</a> |
                                     <a href="{% url 'delete_comment' comment.id %}" class="remove-item link-blue float-right" id="remove_{{ item.item_id }}">Delete</a>
@@ -44,7 +44,7 @@
                         {% endfor %}              
                     {% else %}
                         <p class="lead mb-5">You haven't commented any products yet.</p>
-                        <a href="{% url 'products' %}" class="btn btn-main hvr-back-pulse btn-lg">
+                        <a href="{% url 'products_detial' %}" class="btn btn-main hvr-back-pulse btn-lg">
                             <i class="fas fa-chevron-left"></i>
                             <span class="text-uppercase">Explore Products</span>
                         </a>

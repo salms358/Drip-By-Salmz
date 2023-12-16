@@ -10,4 +10,17 @@ button {
     transition: box-shadow 150ms ease;
 }
 
+.formz {
+    background-color:rgba(0, 0, 0, 0.44);
+    text-align:center;
+    line-height:7px;
+    align-items: center;
+    justify-content: center;
+    height:60vh;
+    display:block;
+    
+}
 
+div,h2 {
+    color:white;
+}

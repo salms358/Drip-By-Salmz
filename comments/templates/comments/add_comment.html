@@ -37,7 +37,7 @@
         <!-- Review form -->
         <div class="row">
             <div class="col-12 col-md-6 mb-3">
-                <form method="POST" action="{% url 'add_comment' product.id %}" id="review-form" class="text-muted form mb-5"
+                <form method="POST" action="{% url 'add_comment' product.id %}" id="comment-form" class="text-muted form mb-5"
                     enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
