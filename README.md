@@ -168,3 +168,40 @@ After the user goes through checkout they will be presented with the checkout su
 
 These are the colours I was looking to use before starting my project. As the UK street wear colour scheme consists of the colours black and white for example. I made sure colours were contrasting to ensure the users can easily read the text and make a purchase. Moreover individuals with visual impairments can benefit off the colour scheme.
 ![colour pallette](https://github.com/salms358/Drip-By-Salmz/assets/119611403/5fac7fb4-ae51-4753-b592-422cd8eb477d)
+
+### Website layout
+
+My homepage has a image of an individual wearing one of the brands we sell here on this website. The nav-bar is white with black text so it is easy for the customers to read. There is a "Shop Now" button so customers can go straight to viewing the products.
+
+![Homepage pro](https://github.com/salms358/Drip-By-Salmz/assets/119611403/7e531ee7-0afe-4e83-83fb-ce3f09a719d8)
+
+The products page is very simple. As soom as the user clicks "all products" or "Shop Now" all ofthe products are nicely presented leaving the user to browse through what they fancy buying.
+
+![Products page](https://github.com/salms358/Drip-By-Salmz/assets/119611403/2385e64d-c3ec-4a96-baa5-248b266333c0)
+
+The Products Detail Page just shows the image of the product, the title of the product as well as the product description.
+
+![Products detail page](https://github.com/salms358/Drip-By-Salmz/assets/119611403/d313b983-a67a-4ed2-a59f-6f997aee7e13)
+
+# Marketing
+
+After knowing I wanted to pursue a streewear business in London I started to research other businesses that sell the same products/services to get some ideas on what objects sell the most. I found the staples for London streetwear were:
+
+- Hoodies
+- Beanie Hats
+- Puffer Jackets
+- Tracksuits
+- Sunglasses
+
+## Business Model
+
+Drip By Salmz is a B2C that offer premium clothing so our customers feel their best!. Its our goal to make sure that our customers feel their best wearing our products.
+
+## Customers
+Anyone can buy from our business. Primarily my targer audience are the younger generations from around 18-25 as the products are a little on the pricier side.
+
+## Competitors
+
+Wth the clothing industry their are a lot of competitors including clothing retailers like JD Sports who sell similar products to us. Whilst listing out competitors ive found that a lot of businesses sell their products on social medias like Tick Tok where. However I found that these businesses are more small/medium enterprises. Examples of bigger companies are JDs, Sport Direct, FootAsylum, Footlocker.
+ 
+### SWOT analysis
