@@ -1,0 +1,26 @@
+button {
+    box-sizing: border-box;
+    height: 40px;
+    padding-top: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
+.formz {
+    background-color:rgba(0, 0, 0, 0.44);
+    text-align:center;
+    line-height:7px;
+    align-items: center;
+    justify-content: center;
+    height:60vh;
+    display:block;
+    
+}
+
+div,h2 {
+    color:white;
+}

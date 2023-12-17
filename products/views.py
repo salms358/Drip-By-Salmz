@@ -5,6 +5,7 @@ from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
 from .models import Product, Category
 from .forms import ProductForm
+from comments.models import Comment
 
 # Create your views here.
 
@@ -34,7 +35,7 @@ def all_products(request):
             
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)
+            products = products.filter(categories__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
         if 'q' in request.GET:
@@ -62,9 +63,11 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    comments = Comment.objects.filter(product=product_id)
 
     context = {
         'product': product,
+        'product_comments': comments
     }
 
     return render(request, 'products/product_detail.html', context)

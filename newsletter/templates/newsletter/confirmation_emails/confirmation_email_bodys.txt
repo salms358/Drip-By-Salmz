@@ -1,0 +1,8 @@
+Hello {{ subcriber.full_name }}
+
+Thank you for subcribing to our newsletter!. Your order details are below:
+
+
+Email: {{ subcriber.email }}
+
+Time Subcribed: {{ subcriber.subscribed_at }}

@@ -7,7 +7,7 @@
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
-                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                <a href="{% url 'products' %}?sort=categories&direction=asc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -17,12 +17,11 @@
                 Clothing
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="{% url 'products' %}?category=Cargos" class="dropdown-item">Cargos</a>
                 <a href="{% url 'products' %}?category=T-Shirts" class="dropdown-item">T-Shirts</a>
                 <a href="{% url 'products' %}?category=Jackets" class="dropdown-item">Jackets</a>
                 <a href="{% url 'products' %}?category=Tracksuits" class="dropdown-item">Tracksuits</a>
                 <a href="{% url 'products' %}?category=Accessories" class="dropdown-item">Accessories</a>
-                <a href="{% url 'products' %}?category=Cargos,T-Shirts,Jackets,Tracksuits,Accessories" class="dropdown-item">All Clothing</a>
+                <a href="{% url 'products' %}?category=T-Shirts,Jackets,Tracksuits,Accessories" class="dropdown-item">All Clothing</a>
             </div>
         </li>
 
@@ -31,10 +30,8 @@
                 Brands
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="brands-link">
-                <a href="{% url 'products' %}?category=Timberland" class="dropdown-item">Timberland</a> 
                 <a href="{% url 'products' %}?category=Jordans" class="dropdown-item">Jordans</a> 
                 <a href="{% url 'products' %}?category=Nike" class="dropdown-item">Nike</a> 
-                <a href="{% url 'products' %}?category=Corteiz" class="dropdown-item">Corteiz</a>
                 <a href="{% url 'products' %}?category=Trapstar" class="dropdown-item">Trapstar</a>
                 <a href="{% url 'products' %}?category=Timberland,Jordans,Nike,Corteiz,Trapstar" class="dropdown-item">All Brands</a>
             </div>
@@ -45,10 +42,9 @@
                 Winter Is Coming
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="winter-link">
-                <a href="{% url 'products' %}?category=Jumpers" class="dropdown-item">Jumpers</a>
-                <a href="{% url 'products' %}?category=Shoes" class="dropdown-item">Boots</a>
-                <a href="{% url 'products' %}?category=Coats" class="dropdown-item">Coats/Jackets</a>
-                <a href="{% url 'products' %}?category=Jumpers,Shoes,Coats,Jackets" class="dropdown-item">Shop All Winter Items</a>
+                <a href="{% url 'products' %}?category=Hats" class="dropdown-item">Hats</a>
+                <a href="{% url 'products' %}?category=Jackets" class="dropdown-item">Jackets</a>
+                <a href="{% url 'products' %}?category=Hats,Coats,Jackets" class="dropdown-item">Shop All Winter Items</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -59,9 +55,10 @@
                 <a href="{% url 'products' %}?category=Jordan 1s" class="dropdown-item">Jordan 1s</a>
                 <a href="{% url 'products' %}?category=Jordan 4s" class="dropdown-item">Jordan 4s</a>
                 <a href="{% url 'products' %}?category=Airforces" class="dropdown-item">Airforces</a>
-                <a href="{% url 'products' %}?category=Timberlands" class="dropdown-item">Timberlands</a>
-                <a href="{% url 'products' %}?category=Yeezys" class="dropdown-item">Yeezys</a>
-                <a href="{% url 'products' %}?category=Jordan 1s,Jordan 4s,Airforces,Timberlands,Yeezys" class="dropdown-item">All Sneakers</a>
+                <a href="{% url 'products' %}?category=Dunks" class="dropdown-item">Dunks</a>
+
+        
+                <a href="{% url 'products' %}?category=Jordan 1s,Jordan 4s,Airforces,Dunks" class="dropdown-item">All Sneakers</a>
 
             </div>
         </li>
@@ -71,7 +68,7 @@
                 Contact Us
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="sneaker-link">
-                <a href="{% url 'products' %}" class="dropdown-item">FaceBook Page</a>
+                <a href="https://www.facebook.com/profile.php?id=61554232755826" class="dropdown-item">FaceBook Page</a>
                 <a href="{% url 'newsletter' %}" class="dropdown-item">Subscribe to Newsletter</a>
                 
 

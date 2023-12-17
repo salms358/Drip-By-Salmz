@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Sitemap: https://dripzs-by-salmz.herokuapp.com/sitemap.xml/workspace/Drip-By-Salmz/bag

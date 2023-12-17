@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'comments/css/comments.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+
+            <!-- Add review main header -->
+            <div class="col-12 col-md-6 mb-3">
+                <hr>
+                <h2 class="logo-text py-4">Add a Comment</h2>
+                <hr>
+                <h5 class="text-muted">Product</h5>
+            </div>
+        </div>
+
+        <!-- Product description -->
+        <div class="row">
+            <div class="col-6 col-md-3 mb-3">
+                {% if product.image %}
+                    <img class="w-100" src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                {% endif %}
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+                <p>{{ product.name }}</p>
+                <p>{{ product.description }}</p>
+            </div>
+        </div>
+
+        <!-- Review form -->
+        <div class="row">
+            <div class="col-12 col-md-6 mb-3">
+                <form method="POST" action="{% url 'add_comment' product.id %}" id="comment-form" class="text-muted form mb-5"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-end mt-3">
+                        <a class="btn btn-main hvr-back-pulse" href="{% url 'product_detail' product.id %}">Cancel</a>
+                        <button class="btn btn-alternate" type="submit">Add Comment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

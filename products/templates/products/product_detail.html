@@ -26,6 +26,26 @@
                     {% endif %}
                 </div>
             </div>
+            <div class="row">
+                <div class="product-container my-5 col-10 offset-1">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                            <div class="position-relative image-container my-5">
+        
+                                    <!-- Add/remove from favorites link -->
+                                    <a class="favorite-link link-blue" href="{% url 'add_likes' product.id %}">
+                                        {% if liked %}
+                                            <i class="fas fa-heart" aria-label="Remove from liked">Like Product</i>
+                                        {% else %}
+                                            <i class="far fa-heart" aria-label="Add to liked">Like Product</i>
+                                        {% endif %}
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
                     <p class="mb-0">{{ product.name }}</p>
@@ -138,10 +158,69 @@
                             {% endwith %}
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div class="row">
+        
+        <div class="col-12 col-lg-10 offset-lg-1">
+            <hr class="my-0">
+                <a class="logo-text link-dark my-0" data-bs-toggle="collapse" href="#collapse-reviews" 
+                    role="button" aria-expanded="false" aria-controls="collapse-reviews">            
+                    <p class="py-3 my-0">Comments ({{ product_comments | length }})</p>
+                </a>
+                <hr class="my-0">
+            <div class="{% if current_sorting == 'None_None' %}collapse{% endif %}" id="collapse-reviews">
+                {% if product_comments %}
+                    <!-- Sort selector -->
+                    <div class="sort-select-wrapper my-4">
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded border {% if current_sorting != 'None_None' %}border-blue{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort
+                                by...</option>
+                            <option value="date_asc" {% if current_sorting == 'date_asc' %}selected{% endif %}>Date
+                                (older to newest)</option>
+                            <option value="date_desc" {% if current_sorting == 'date_desc' %}selected{% endif %}>
+                                Date (newest to oldest)</option>
+                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>
+                                Rating (low to high)</option>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="review-container mt-4">
+                        {% for comment in product_comments %}
+                            <div class="my-4 border-bottom">
+                                <h5>{{ comment.title }}</h5>
+                                <p>{{ comment.content }}</p>
+                                <p class="c--light-blue"><i class="fas fa-star me-1"></i>{{ comment.rating }} / 5</p>
+                                <p class="text-muted d-inline small">By {{ comment.author }} on {{ comment.created_on }}</p>
+                                {% if comment.author == request.user %}
+                                    <small class="ms-3 float-end">
+                                        <a href="{% url 'edit_comment' comment.id %}" class="update-link link-dark">Edit</a> |
+                                        <a href="{% url 'delete_comment' comment.id %}" class="remove-item link-blue float-right" id="remove_{{ item.item_id }}">Delete</a>
+                                    </small>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="my-4">
+                        No comments for this product yet.
+                    </div>
+                {% endif %}
+                    <a href="{% url 'add_comment' product.id %}" class="btn btn-main hvr-back-pulse">
+                        <span class="text-uppercase">Leave a comment</span>
+                    </a>
+            </div>
+        </div>
+    </div>
+
+        
 {% endblock %}
 
 {% block postloadjs %}

@@ -1,13 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'newsletter/css/newsletter.css' %}">
+{% endblock %}
 
 {% block content %}
-
-    <h2>Subscribe to Our Newsletter</h2>
-
-    <form method="post" action="{% url 'subscribe' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Subscribe</button>
-    </form>
+<div class="formz">
+    <h2>Subscribe to our newsletter</h2>
+        <form method="post" action="{% url 'newsletter' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Subscribe to our newsletter</button>
+        </form>
+</div>
 {% endblock %}
 

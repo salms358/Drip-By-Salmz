@@ -8,7 +8,13 @@ body {
     height: calc(100vh - 140px);
     color: #555;
     font-family: 'Lato'; 
-    padding-top: 400x;
+  
+ 
+
+}
+
+#liked {
+    padding-left:30px;
 }
 
 
@@ -74,7 +80,14 @@ body {
 .bg-black {
     background: #000 !important;
 }
+h2 {
+    margin-top: 400px;
+    text-align: center;
+}
 
+form {
+    text-align:center;
+}
 .overlay {
 	height: 100%;
 	width: 100%;
