@@ -26,6 +26,26 @@
                     {% endif %}
                 </div>
             </div>
+            <div class="row">
+                <div class="product-container my-5 col-10 offset-1">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                            <div class="position-relative image-container my-5">
+        
+                                    <!-- Add/remove from favorites link -->
+                                    <a class="favorite-link link-blue" href="{% url 'add_likes' product.id %}">
+                                        {% if liked %}
+                                            <i class="fas fa-heart" aria-label="Remove from liked">Like Product</i>
+                                        {% else %}
+                                            <i class="far fa-heart" aria-label="Add to liked">Like Product</i>
+                                        {% endif %}
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
                     <p class="mb-0">{{ product.name }}</p>
@@ -139,26 +159,6 @@
                         </div>
                     </form>
 
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="product-container my-5 col-10 offset-1">
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                    <div class="position-relative image-container my-5">
-
-                            <!-- Add/remove from favorites link -->
-                            <a class="favorite-link link-blue" href="{% url 'add_likes' product.id %}">
-                                {% if liked %}
-                                    <i class="fas fa-heart" aria-label="Remove from liked">Like Product</i>
-                                {% else %}
-                                    <i class="far fa-heart" aria-label="Add to liked">Like Product</i>
-                                {% endif %}
-                            </a>
-                    </div>
                 </div>
             </div>
         </div>

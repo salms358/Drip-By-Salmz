@@ -13,6 +13,10 @@ body {
 
 }
 
+#liked {
+    padding-left:30px;
+}
+
 
 .icon {
     align-items: center;
