@@ -1,9 +1,9 @@
- 
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from webhooks import webhook 
+from .views import handler404
 
 
 urlpatterns = [
@@ -15,5 +15,8 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
     path('newsletter/', include('newsletter.urls')),
+    path('comments/', include('comments.urls')),
+    path('likes/', include('likes.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+handler404 = 'drip_salmz.views.handler404'
