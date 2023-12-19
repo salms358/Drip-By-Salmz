@@ -1,7 +1,7 @@
-
 from django.shortcuts import render, redirect
 from .forms import SubscribeForm
 from django.core.mail import send_mail
+from .models import Subscriber
 
 
 def newsletter(request):
@@ -27,5 +27,6 @@ def newsletter(request):
 def newsletter_success(request):
     """
     """
-
-    return render(request, 'newsletter/newsletter_success.html')
+    latest_subscriber = Subscriber.objects.order_by('-subscribed_at').first()
+    print(latest_subscriber)
+    return render(request, 'newsletter/newsletter_success.html', {'latest_subscriber': latest_subscriber})

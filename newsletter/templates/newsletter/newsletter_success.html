@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'newsletter/css/newsletter.css' %}">
 {% endblock %}
@@ -20,9 +19,8 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Thank you for subcribing to our Newsletter!</h2>
+                <h2 class="logo-font mb-4 text-black">Thank you for subscribing to our Newsletter!</h2>
                 <hr>
-                <p>Your order information. A confirmation email will be sent to you through your chosen email <strong>{subcriber.email}</strong></p>
             </div>
         </div>
         
@@ -34,22 +32,24 @@
                         <small class="logo-text">Newsletter Details:</small>
                     </div>
 
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Email</p>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <p class="mb-0 text-black font-weight-bold">Email</p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-center">
+                            <p class="mb-0 text-black">{{ latest_subscriber.email }}</p>
+                        </div>
                     </div>
-                    <div class="col-12 col-md-8 text-md-right">
-                        <p class="mb-0">{{ subcriber.email }}</p>
+
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <p class="mb-0 text-black font-weight-bold">Time Subscribed:</p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-center text-black">
+                            <p class="mb-0">{{ latest_subscriber.subscribed_at }}</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Time Subcribed:</p>
-                    </div>
-                    <div class="col-12 col-md-8 text-md-right">
-                        <p class="mb-0">{{ subcriber.subcribed_at }}</p>
-                    </div>
             </div>
         </div>
     </div>
