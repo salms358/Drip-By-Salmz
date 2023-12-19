@@ -389,7 +389,12 @@ Provides information to the shopper incase the address they entered cannot be fo
 
 ## Testing
 
-I tested the HTML there were a few errors at the start with a few things.
+I tested the HTML there were a few errors at the start with a few things. The errors I got were related to the same IDs being in the tags. These erros are now corrected. To correct these warnings and errors I used the [w3c HTML validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdripzs-by-salmz-006e3a5f6351.herokuapp.com%2F).
+
+I used the same thing for CSS and got no errors. [w3c schools css validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdripzs-by-salmz-006e3a5f6351.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en).
+
+For python I used the PEP8 validator for each of the django apps. There is a strnage indentation error which I dont know how to correct. No matter how I indent the code.
+[Python Validator](https://pep8ci.herokuapp.com/#). Thre were a lot of files to look through but the erros are now corrected.
 
 
 

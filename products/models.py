@@ -41,6 +41,5 @@ class Product(models.Model):
                                             related_name='favorite_products',
                                             blank=True)
 
-
     def __str__(self):
         return self.name
