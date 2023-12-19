@@ -79,7 +79,7 @@ def edit_comment(request, comment_id):
         messages.info(request, f'You are editing your comment for \
             {comment.product.name}')
 
-    template = 'comments/update_comment.html'
+    template = 'comments/edit_comment.html'
 
     context = {
         'form': form,

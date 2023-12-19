@@ -23,9 +23,9 @@
         <div class="row">
             <div class="col-6 col-md-3 mb-3">
                 {% if comment.product.image %}
-                    <img class="w-100" src="{{ review.product.image.url }}" alt="{{ review.product.name }}">
+                    <img class="w-100" src="{{ comment.product.image.url }}" alt="{{ comment.product.name }}">
                 {% else %}
-                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ review.product.name }}">
+                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ comment.product.name }}">
                 {% endif %}
             </div>
             <div class="col-6 col-md-3 mb-3">
@@ -37,12 +37,12 @@
         <!-- Review form -->
         <div class="row">
             <div class="col-12 col-md-6 mb-3">
-                <form method="POST" action="{% url 'update_review' review.id %}" id="review-form" class="text-muted form mb-5"
+                <form method="POST" action="{% url 'edit_comment' comment.id %}" id="comment-form" class="text-muted form mb-5"
                     enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-end mt-3">
-                        <a class="btn btn-main hvr-back-pulse" href="{% url 'product_detail' review.product.id %}">Cancel</a>
+                        <a class="btn btn-main hvr-back-pulse" href="{% url 'product_detail' comment.product.id %}">Cancel</a>
                         <button class="btn btn-alternate" type="submit">Update Comment</button>
                     </div>
                 </form>
