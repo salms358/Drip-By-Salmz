@@ -201,7 +201,7 @@
                                 <p class="text-muted d-inline small">By {{ comment.author }} on {{ comment.created_on }}</p>
                                 {% if comment.author == request.user %}
                                     <small class="ms-3 float-end">
-                                        <a href="{% url 'edit_comment' comment.id %}" class="update-link link-dark">Edit</a> |
+                                        <a href="{% url 'update_comment' comment.id %}" class="update-link link-dark">Edit</a> |
                                         <a href="{% url 'delete_comment' comment.id %}" class="remove-item link-blue float-right" id="remove_{{ item.item_id }}">Delete</a>
                                     </small>
                                 {% endif %}

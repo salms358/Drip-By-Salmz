@@ -53,9 +53,9 @@ def add_comment(request, product_id):
 
 
 @login_required
-def edit_comment(request, product_id):
+def edit_comment(request, comment_id):
     """ Display form to edit a review """
-    comment = get_object_or_404(Comment, pk=product_id)
+    comment = get_object_or_404(Comment, pk=comment_id)
 
     if request.user != comment.author:
         messages.error(request, 'You are not authorized to edit this comment.')
@@ -90,9 +90,9 @@ def edit_comment(request, product_id):
 
 
 @login_required
-def delete_comment(request, product_id):
+def delete_comment(request, comment_id):
     """ Delete an existing review """
-    comment = get_object_or_404(Comment, pk=product_id)
+    comment = get_object_or_404(Comment, pk=comment_id)
 
     if request.user != comment.author:
         messages.error(request, 'You are not authorized \
@@ -107,7 +107,7 @@ def delete_comment(request, product_id):
     return redirect(reverse('product_detail', args=[comment.product.id]))
 
 
-def update_comment(product): #comment_id
+def update_comment(product): 
     """ Update the rating field for the product """
 
     total_comments = Comment.objects.filter(product=product)
@@ -123,5 +123,6 @@ def update_comment(product): #comment_id
         product.rating = ratings_sum / nr_of_total_comments
 
     product.save()
+
 
 
