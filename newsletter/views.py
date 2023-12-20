@@ -29,4 +29,5 @@ def newsletter_success(request):
     """
     latest_subscriber = Subscriber.objects.order_by('-subscribed_at').first()
     print(latest_subscriber)
-    return render(request, 'newsletter/newsletter_success.html', {'latest_subscriber': latest_subscriber})
+    return render(request, 'newsletter/newsletter_success.html',
+                  {'latest_subscriber': latest_subscriber})

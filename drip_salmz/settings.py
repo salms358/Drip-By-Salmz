@@ -31,9 +31,9 @@ DEBUG = 'DEVELOPMENT' in os.environ
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-#ALLOWED_HOSTS = [ 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = [ 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
 
-ALLOWED_HOSTS = [ '8000-salms358-dripbysalmz-ljjhp3e7dx8.ws-eu107.gitpod.io']
+
 
 
 
@@ -224,10 +224,12 @@ if 'USE_AWS' in os.environ:
 
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
+CURRENCIES = ['GBP']
 STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+
 
 
 if 'DEVELOPMENT' in os.environ:

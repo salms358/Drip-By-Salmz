@@ -6,6 +6,7 @@ from products.models import Product
 from .models import Comment
 from .forms import CommentForm
 
+
 @login_required
 def show_comments(request):
     """ A view to show the user's product reviews """
@@ -19,13 +20,15 @@ def show_comments(request):
 
     return render(request, template, context)
 
+
 @login_required
 def add_comment(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    user_comments = Comment.objects.filter(author=request.user, product=product)
+    user_comments = Comment.objects.filter(
+                                          author=request.user, product=product)
 
     if user_comments:
-        messages.error(request, 'A review has already been submitted for this product.')
+        messages.error(request, 'Review already submitted')
         return redirect(reverse('product_detail', args=[product.id]))
     else:
         if request.method == 'POST':
@@ -38,7 +41,7 @@ def add_comment(request, product_id):
                 update_comment(product)
                 return redirect(reverse('product_detail', args=[product.id]))
             else:
-                messages.error(request, 'Failed to submit the comment. Please ensure the form is valid.')
+                messages.error(request, 'Failed to submit the comment')
         else:
             form = CommentForm()
 
@@ -48,8 +51,6 @@ def add_comment(request, product_id):
             'form': form,
         }
         return render(request, template, context)
-
-
 
 
 @login_required
@@ -107,7 +108,7 @@ def delete_comment(request, comment_id):
     return redirect(reverse('product_detail', args=[comment.product.id]))
 
 
-def update_comment(product): 
+def update_comment(product):
     """ Update the rating field for the product """
 
     total_comments = Comment.objects.filter(product=product)
@@ -123,6 +124,7 @@ def update_comment(product):
         product.rating = ratings_sum / nr_of_total_comments
 
     product.save()
+
 
 
 
