@@ -84,7 +84,7 @@ Shopping cart quick view | 3 | 3
 Card payment | 5 | 5
 Additional payment options | 3 | 2
 Newsletter subscription | 5 | 5
-**Total** | **95** | **87**
+**Total** | **82** | **74**
 
 
 ## Scope 
@@ -394,8 +394,146 @@ I tested the HTML there were a few errors at the start with a few things. The er
 I used the same thing for CSS and got no errors. [w3c schools css validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdripzs-by-salmz-006e3a5f6351.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en).
 
 For python I used the PEP8 validator for each of the django apps. There is a strnage indentation error which I dont know how to correct. No matter how I indent the code.
-[Python Validator](https://pep8ci.herokuapp.com/#). Thre were a lot of files to look through but the erros are now corrected.
+[Python Validator](https://pep8ci.herokuapp.com/#). Thre were a lot of files to look through but the erros are now corrected. I also ran the command python3 -m flake8 which listed out all the erors in the terminal. I corrected the errors I could as if i corrected the line length of the rest of the lines the code would break and alot of the functionalities stopped working.
 
+## Accessibility 
+I lighthouse tested all of the main pages of the website.
+
+Edititng Reviews Page
+![edit reviews lighthouse](https://github.com/salms358/Drip-By-Salmz/assets/119611403/e6b52d27-7393-48a1-911f-36f49db10f4e)
+ Adding Reviews page
+![review lighthouse](https://github.com/salms358/Drip-By-Salmz/assets/119611403/aa42d478-d5b5-4bc6-b85c-93eb547610d0)
+Newsletter Page
+![newsletter lighthouse](https://github.com/salms358/Drip-By-Salmz/assets/119611403/fda00910-9ba7-40f3-8645-203a12643587)
+Like page
+![like page](https://github.com/salms358/Drip-By-Salmz/assets/119611403/9769c333-2e01-49e1-83fb-2cc443181a18)
+Products Page
+![lighthouse products page](https://github.com/salms358/Drip-By-Salmz/assets/119611403/09b2e19e-8118-4b28-a077-ff24eb523798)
+
+Homepage
+![lighthouse for homepage](https://github.com/salms358/Drip-By-Salmz/assets/119611403/9f220542-55b5-4dfa-932b-b9218fabd876)
+
+According to the lighthouse test 57 on the products page was because of the images causing the page to take longer to load
+
+### Manual Testing 
+
+#### Home Page
+
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Categories Links | Clicking any of the links will redirect to the products page and filter the products on that category. | Pass |
+Down Arrow Link | Clicking the link redirects to about section in the home page. | Pass |
+
+
+#### Products Page
+
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Product Navigation Bar Links | Clicking any of the links will filter the products on that category. | Pass |
+Sort By Selector | Sort by functionality sort the products depending on the selection. | Pass |
+Favorites Link | Clicking the link redirects to the favorites page. | Pass |
+Product Image | Clicking the image redirect to the product details page for that specific product. | Pass |
+Product Edit Link | Clicking the link redirects to the edit product page. | Pass |
+Product Delete Link | Clicking the link delete the product from the database. | Pass |
+
+
+#### Product Details Page
+
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Product Navigation Bar Links | Clicking any of the links will redirect to the products page and filter the products on that category. | Pass
+Product Image | Clicking the image opens it on a separate tab. | Pass |
+Like Icon | Clicking the icon toggle the product on the like database. | Pass |
+Product Edit Link | Clicking the link redirects to the edit product page. | Pass |
+Product Delete Link | Clicking the link deletes the product from the database. | Pass |
+Keep Shopping Button | Clicking the button redirects to the products page. | Pass |
+Add To Bag Button | Clicking the button adds the specified quantity of the product to the shopping bag. | Pass |
+Reviews Link | Clicking the link toggle the product reviews. | Pass |
+Sort By Selector | Sort by functionality sort the reviews depending on the selection. | Pass |
+Review Edit Link | Clicking the link redirects to the edit review page. | Pass |
+Review Delete Link | Clicking the link delete the review from the database. | Pass |
+Leave A Comment Button | Clicking the button redirects to the add comment page. | Pass |
+
+
+#### Add Product Page
+
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Select Image Button | Clicking the button allows to add an image to the form | Pass |
+Add Product Form | Product gets registered to the database when submitting the form. | Pass |
+Cancel Button | Clicking the button redirects to the products page. | Pass |
+
+
+#### Edit Product Page
+
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Select Image Button | Clicking the button allows to add or replace the image | Pass |
+Edit Product Form | Product gets updated when submitting the form. | Pass |
+Cancel Button | Clicking the button redirects to the products page. | Pass |
+
+
+#### Shopping Bag Page
+
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Decrease Quantity Button | Decreases the quantity on the input form. | Pass |
+Increase Quantity Button | Increases the quantity on the input form. | Pass |
+Update Link | Clicking the link update the product quantity on the shopping bag. | Pass
+Delete Link | Clicking the link removed the product from the shopping bag. | Pass
+Keep Shopping Button | Clicking the button redirects to the products page. | Pass |
+Secure Checkout Button | Clicking the button redirects to the checkout page. | Pass |
+
+
+#### Checkout Page
+
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Checkout Form | An order gets created when submitted the form. | Pass |
+Login Link | Clicking the link redirects to the account sign in page. | Pass |
+Register Link | Clicking the link redirects to the account sign up page. | Pass |
+Save Information Check | Checking the box update the user's profile information during the checkout process. | Pass |
+Adjust Bag Link | Clicking the link redirects to shopping bag page. | Pass |
+
+
+
+
+#### Profile Page
+
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Update Information Form | User's information gets updated when submitting the form. | Pass |
+Order Link | Clicking the link redirects to order view. | Pass |
+
+
+#### Favorites Page
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Remove Link | Clicking the link removes the product from the user's like list. | Pass |
+
+
+#### Reviews Page
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Product Link | Clicking the link redirect to the product details page. | Pass |
+Edit Link | Clicking the link redirect to the edit review page. | Pass |
+Delete Link | Clicking the link deletes the review from the database. | Pass |
+
+
+#### Add Review Page
+
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Add Review Form | Review gets registered to the database when submitting the form. | Pass |
+Cancel Button | Clicking the button redirects to the product details page. | Pass |
+
+
+#### Edit Review Page
+
+Element | Expected Outcome | Pass/Fail |
+--- | --- | --- |
+Edit Review Form | Review gets updated when submitting the form. | Pass |
+Cancel Button | Clicking the button redirects to the products page. | Pass |
 
 
 
@@ -757,6 +895,8 @@ Inspiration for the Categories were taken from [No Sauce The Plug](https://nosau
 ### Code
 The code in Code Institutes Boutique Ado project was used as the main referecne point to set up my E-Commerce website.
 
+- Some code was inspired by gave me ideas on the favorites list [Josswe](https://github.com/josswe26)
+
 ## Known Bugs
 
 Sometimes when the deployed link is opened the homepage does not show up., But I solved this problem by refreshing the cookies which seemed to work.
@@ -767,6 +907,6 @@ For some reason a sign in is required for the users to look at the products.
 
 - My mentor Marcel who gave me good advice on potential features to include in my project.
 
-- Tutor support helped me when I ran into issues I needed assistance with solving.
+- Tutor support helped me when I ran into issues I needed assistance with solving problems.
 
 - The slack community and Code Institute for helping with dealing with a family loss.
