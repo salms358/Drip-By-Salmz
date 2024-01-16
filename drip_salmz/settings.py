@@ -24,14 +24,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = 'DEBUG' in os.environ
 
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = [ 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['8000-salms358-dripbysalmz-d98mwzazhhx.ws-eu107.gitpod.io', 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
 
 
 

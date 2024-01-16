@@ -54,6 +54,7 @@ class Order(models.Model):
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
+        print('update total')
         self.save()
 
     def save(self, *args, **kwargs):
