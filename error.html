@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="robots" content="NONE,NOARCHIVE">
-  <title>AttributeError
+  <title>NameError
           at /checkout/wh/</title>
   <style type="text/css">
     html * { padding:0; margin:0; }
@@ -105,9 +105,9 @@
 </head>
 <body>
 <div id="summary">
-  <h1>AttributeError
+  <h1>NameError
        at /checkout/wh/</h1>
-  <pre class="exception_value">charges</pre>
+  <pre class="exception_value">name &#x27;stripe&#x27; is not defined</pre>
   <table class="meta">
     <tr>
       <th>Request Method:</th>
@@ -123,15 +123,15 @@
     </tr>
     <tr>
       <th>Exception Type:</th>
-      <td>AttributeError</td>
+      <td>NameError</td>
     </tr>
     <tr>
       <th>Exception Value:</th>
-      <td><pre>charges</pre></td>
+      <td><pre>name &#x27;stripe&#x27; is not defined</pre></td>
     </tr>
     <tr>
       <th>Exception Location:</th>
-      <td><span class="fname">/app/.heroku/python/lib/python3.11/site-packages/stripe/stripe_object.py</span>, line 140, in __getattr__</td>
+      <td><span class="fname">/app/checkout/webhook_handler.py</span>, line 55, in handle_payment_intent_succeeded</td>
     </tr>
     <tr>
       <th>Python Executable:</th>
@@ -152,7 +152,7 @@
     </tr>
     <tr>
       <th>Server time:</th>
-      <td>Tue, 16 Jan 2024 18:54:56 +0000</td>
+      <td>Tue, 16 Jan 2024 19:16:44 +0000</td>
     </tr>
   </table>
 </div>
@@ -164,514 +164,48 @@
     <ul class="traceback">
       
         
-        <li class="frame user">
-          
-            <code class="fname">/app/.heroku/python/lib/python3.11/site-packages/stripe/stripe_object.py</code>, line 138, in __getattr__
-          
-          
-            <div class="context" id="c139978931245504">
-              
-                <ol start="131" class="pre-context" id="pre139978931245504">
-                
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>            return None</pre></li>
-                
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre></pre></li>
-                
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>        def __getattr__(self, k):</pre></li>
-                
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>            if k[0] == &quot;_&quot;:</pre></li>
-                
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>                raise AttributeError(k)</pre></li>
-                
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre></pre></li>
-                
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>            try:</pre></li>
-                
-                </ol>
-              
-              <ol start="138" class="context-line">
-                <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>                return self[k]</pre> <span>…</span></li>
-              </ol>
-              
-                <ol start='139' class="post-context" id="post139978931245504">
-                  
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>            except KeyError as err:</pre></li>
-                  
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>                raise AttributeError(*err.args)</pre></li>
-                  
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre></pre></li>
-                  
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>        def __delattr__(self, k):</pre></li>
-                  
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>            if k[0] == &quot;_&quot; or k in self.__dict__:</pre></li>
-                  
-                  <li onclick="toggle('pre139978931245504', 'post139978931245504')"><pre>                return super(StripeObject, self).__delattr__(k)</pre></li>
-                  
-              </ol>
-              
-            </div>
-          
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '139978931245504')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v139978931245504">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>k</td>
-                    <td class="code"><pre>&#x27;charges&#x27;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;PaymentIntent payment_intent id=pi_3OZHmKBvgmz6lyao0Ki8Nz9d at 0x7f4f60cf2d50&gt; JSON: {
-  &quot;amount&quot;: 14999,
-  &quot;amount_capturable&quot;: 0,
-  &quot;amount_details&quot;: {
-    &quot;tip&quot;: {}
-  },
-  &quot;amount_received&quot;: 14999,
-  &quot;application&quot;: null,
-  &quot;application_fee_amount&quot;: null,
-  &quot;automatic_payment_methods&quot;: {
-    &quot;allow_redirects&quot;: &quot;always&quot;,
-    &quot;enabled&quot;: true
-  },
-  &quot;canceled_at&quot;: null,
-  &quot;cancellation_reason&quot;: null,
-  &quot;capture_method&quot;: &quot;automatic&quot;,
-  &quot;client_secret&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d_secret_Yoyv8NSEtDisRom1ColVbCP4h&quot;,
-  &quot;confirmation_method&quot;: &quot;automatic&quot;,
-  &quot;created&quot;: 1705431268,
-  &quot;currency&quot;: &quot;gbp&quot;,
-  &quot;customer&quot;: null,
-  &quot;description&quot;: null,
-  &quot;id&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d&quot;,
-  &quot;invoice&quot;: null,
-  &quot;last_payment_error&quot;: null,
-  &quot;latest_charge&quot;: &quot;ch_3OZHmKBvgmz6lyao0F9auXAV&quot;,
-  &quot;livemode&quot;: false,
-  &quot;metadata&quot;: {
-    &quot;bag&quot;: &quot;{\&quot;4\&quot;: {\&quot;items_by_size\&quot;: {\&quot;4\&quot;: 1}}}&quot;,
-    &quot;save_info&quot;: &quot;true&quot;,
-    &quot;username&quot;: &quot;MAIN&quot;
-  },
-  &quot;next_action&quot;: null,
-  &quot;object&quot;: &quot;payment_intent&quot;,
-  &quot;on_behalf_of&quot;: null,
-  &quot;payment_method&quot;: &quot;pm_1OZHmkBvgmz6lyaoHl1VI4UL&quot;,
-  &quot;payment_method_configuration_details&quot;: null,
-  &quot;payment_method_options&quot;: {
-    &quot;card&quot;: {
-      &quot;installments&quot;: null,
-      &quot;mandate_options&quot;: null,
-      &quot;network&quot;: null,
-      &quot;request_three_d_secure&quot;: &quot;automatic&quot;
-    }
-  },
-  &quot;payment_method_types&quot;: [
-    &quot;card&quot;
-  ],
-  &quot;processing&quot;: null,
-  &quot;receipt_email&quot;: null,
-  &quot;review&quot;: null,
-  &quot;setup_future_usage&quot;: null,
-  &quot;shipping&quot;: {
-    &quot;address&quot;: {
-      &quot;city&quot;: &quot;anywhere&quot;,
-      &quot;country&quot;: &quot;AT&quot;,
-      &quot;line1&quot;: &quot;anywhere&quot;,
-      &quot;line2&quot;: &quot;dddfghghjj&quot;,
-      &quot;postal_code&quot;: &quot;anywhere&quot;,
-      &quot;state&quot;: &quot;jjhgfdddddd&quot;
-    },
-    &quot;carrier&quot;: null,
-    &quot;name&quot;: &quot;sss&quot;,
-    &quot;phone&quot;: &quot;1234567890&quot;,
-    &quot;tracking_number&quot;: null
-  },
-  &quot;source&quot;: null,
-  &quot;statement_descriptor&quot;: null,
-  &quot;statement_descriptor_suffix&quot;: null,
-  &quot;status&quot;: &quot;succeeded&quot;,
-  &quot;transfer_data&quot;: null,
-  &quot;transfer_group&quot;: null
-}</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        
-        <li class="frame user">
-          
-            <code class="fname">/app/.heroku/python/lib/python3.11/site-packages/stripe/stripe_object.py</code>, line 180, in __getitem__
-          
-          
-            <div class="context" id="c139978931254912">
-              
-                <ol start="173" class="pre-context" id="pre139978931254912">
-                
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>                    &quot;It was then wiped when refreshing the object with &quot;</pre></li>
-                
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>                    &quot;the result returned by Stripe&#x27;s API, probably as a &quot;</pre></li>
-                
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>                    &quot;result of a save().  The attributes currently &quot;</pre></li>
-                
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>                    &quot;available on this object are: %s&quot;</pre></li>
-                
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>                    % (k, k, &quot;, &quot;.join(list(self.keys())))</pre></li>
-                
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>                )</pre></li>
-                
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>            else:</pre></li>
-                
-                </ol>
-              
-              <ol start="180" class="context-line">
-                <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>                raise err</pre> <span>…</span></li>
-              </ol>
-              
-                <ol start='181' class="post-context" id="post139978931254912">
-                  
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre></pre></li>
-                  
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>    def __delitem__(self, k: str) -&gt; None:</pre></li>
-                  
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>        super(StripeObject, self).__delitem__(k)</pre></li>
-                  
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre></pre></li>
-                  
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>        # Allows for unpickling in Python 3.x</pre></li>
-                  
-                  <li onclick="toggle('pre139978931254912', 'post139978931254912')"><pre>        if hasattr(self, &quot;_unsaved_values&quot;) and k in self._unsaved_values:</pre></li>
-                  
-              </ol>
-              
-            </div>
-          
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '139978931254912')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v139978931254912">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>__class__</td>
-                    <td class="code"><pre>&lt;class &#x27;stripe.stripe_object.StripeObject&#x27;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>k</td>
-                    <td class="code"><pre>&#x27;charges&#x27;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;PaymentIntent payment_intent id=pi_3OZHmKBvgmz6lyao0Ki8Nz9d at 0x7f4f60cf2d50&gt; JSON: {
-  &quot;amount&quot;: 14999,
-  &quot;amount_capturable&quot;: 0,
-  &quot;amount_details&quot;: {
-    &quot;tip&quot;: {}
-  },
-  &quot;amount_received&quot;: 14999,
-  &quot;application&quot;: null,
-  &quot;application_fee_amount&quot;: null,
-  &quot;automatic_payment_methods&quot;: {
-    &quot;allow_redirects&quot;: &quot;always&quot;,
-    &quot;enabled&quot;: true
-  },
-  &quot;canceled_at&quot;: null,
-  &quot;cancellation_reason&quot;: null,
-  &quot;capture_method&quot;: &quot;automatic&quot;,
-  &quot;client_secret&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d_secret_Yoyv8NSEtDisRom1ColVbCP4h&quot;,
-  &quot;confirmation_method&quot;: &quot;automatic&quot;,
-  &quot;created&quot;: 1705431268,
-  &quot;currency&quot;: &quot;gbp&quot;,
-  &quot;customer&quot;: null,
-  &quot;description&quot;: null,
-  &quot;id&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d&quot;,
-  &quot;invoice&quot;: null,
-  &quot;last_payment_error&quot;: null,
-  &quot;latest_charge&quot;: &quot;ch_3OZHmKBvgmz6lyao0F9auXAV&quot;,
-  &quot;livemode&quot;: false,
-  &quot;metadata&quot;: {
-    &quot;bag&quot;: &quot;{\&quot;4\&quot;: {\&quot;items_by_size\&quot;: {\&quot;4\&quot;: 1}}}&quot;,
-    &quot;save_info&quot;: &quot;true&quot;,
-    &quot;username&quot;: &quot;MAIN&quot;
-  },
-  &quot;next_action&quot;: null,
-  &quot;object&quot;: &quot;payment_intent&quot;,
-  &quot;on_behalf_of&quot;: null,
-  &quot;payment_method&quot;: &quot;pm_1OZHmkBvgmz6lyaoHl1VI4UL&quot;,
-  &quot;payment_method_configuration_details&quot;: null,
-  &quot;payment_method_options&quot;: {
-    &quot;card&quot;: {
-      &quot;installments&quot;: null,
-      &quot;mandate_options&quot;: null,
-      &quot;network&quot;: null,
-      &quot;request_three_d_secure&quot;: &quot;automatic&quot;
-    }
-  },
-  &quot;payment_method_types&quot;: [
-    &quot;card&quot;
-  ],
-  &quot;processing&quot;: null,
-  &quot;receipt_email&quot;: null,
-  &quot;review&quot;: null,
-  &quot;setup_future_usage&quot;: null,
-  &quot;shipping&quot;: {
-    &quot;address&quot;: {
-      &quot;city&quot;: &quot;anywhere&quot;,
-      &quot;country&quot;: &quot;AT&quot;,
-      &quot;line1&quot;: &quot;anywhere&quot;,
-      &quot;line2&quot;: &quot;dddfghghjj&quot;,
-      &quot;postal_code&quot;: &quot;anywhere&quot;,
-      &quot;state&quot;: &quot;jjhgfdddddd&quot;
-    },
-    &quot;carrier&quot;: null,
-    &quot;name&quot;: &quot;sss&quot;,
-    &quot;phone&quot;: &quot;1234567890&quot;,
-    &quot;tracking_number&quot;: null
-  },
-  &quot;source&quot;: null,
-  &quot;statement_descriptor&quot;: null,
-  &quot;statement_descriptor_suffix&quot;: null,
-  &quot;status&quot;: &quot;succeeded&quot;,
-  &quot;transfer_data&quot;: null,
-  &quot;transfer_group&quot;: null
-}</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        
-        <li class="frame user">
-          
-            <code class="fname">/app/.heroku/python/lib/python3.11/site-packages/stripe/stripe_object.py</code>, line 168, in __getitem__
-          
-          
-            <div class="context" id="c139978931247040">
-              
-                <ol start="161" class="pre-context" id="pre139978931247040">
-                
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre></pre></li>
-                
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>        self._unsaved_values.add(k)</pre></li>
-                
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre></pre></li>
-                
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>        super(StripeObject, self).__setitem__(k, v)</pre></li>
-                
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre></pre></li>
-                
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>    def __getitem__(self, k: str) -&gt; Any:</pre></li>
-                
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>        try:</pre></li>
-                
-                </ol>
-              
-              <ol start="168" class="context-line">
-                <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>            return super(StripeObject, self).__getitem__(k)</pre> <span>…</span></li>
-              </ol>
-              
-                <ol start='169' class="post-context" id="post139978931247040">
-                  
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>        except KeyError as err:</pre></li>
-                  
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>            if k in self._transient_values:</pre></li>
-                  
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>                raise KeyError(</pre></li>
-                  
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>                    &quot;%r.  HINT: The %r attribute was set in the past.&quot;</pre></li>
-                  
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>                    &quot;It was then wiped when refreshing the object with &quot;</pre></li>
-                  
-                  <li onclick="toggle('pre139978931247040', 'post139978931247040')"><pre>                    &quot;the result returned by Stripe&#x27;s API, probably as a &quot;</pre></li>
-                  
-              </ol>
-              
-            </div>
-          
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '139978931247040')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v139978931247040">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>__class__</td>
-                    <td class="code"><pre>&lt;class &#x27;stripe.stripe_object.StripeObject&#x27;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>k</td>
-                    <td class="code"><pre>&#x27;charges&#x27;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;PaymentIntent payment_intent id=pi_3OZHmKBvgmz6lyao0Ki8Nz9d at 0x7f4f60cf2d50&gt; JSON: {
-  &quot;amount&quot;: 14999,
-  &quot;amount_capturable&quot;: 0,
-  &quot;amount_details&quot;: {
-    &quot;tip&quot;: {}
-  },
-  &quot;amount_received&quot;: 14999,
-  &quot;application&quot;: null,
-  &quot;application_fee_amount&quot;: null,
-  &quot;automatic_payment_methods&quot;: {
-    &quot;allow_redirects&quot;: &quot;always&quot;,
-    &quot;enabled&quot;: true
-  },
-  &quot;canceled_at&quot;: null,
-  &quot;cancellation_reason&quot;: null,
-  &quot;capture_method&quot;: &quot;automatic&quot;,
-  &quot;client_secret&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d_secret_Yoyv8NSEtDisRom1ColVbCP4h&quot;,
-  &quot;confirmation_method&quot;: &quot;automatic&quot;,
-  &quot;created&quot;: 1705431268,
-  &quot;currency&quot;: &quot;gbp&quot;,
-  &quot;customer&quot;: null,
-  &quot;description&quot;: null,
-  &quot;id&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d&quot;,
-  &quot;invoice&quot;: null,
-  &quot;last_payment_error&quot;: null,
-  &quot;latest_charge&quot;: &quot;ch_3OZHmKBvgmz6lyao0F9auXAV&quot;,
-  &quot;livemode&quot;: false,
-  &quot;metadata&quot;: {
-    &quot;bag&quot;: &quot;{\&quot;4\&quot;: {\&quot;items_by_size\&quot;: {\&quot;4\&quot;: 1}}}&quot;,
-    &quot;save_info&quot;: &quot;true&quot;,
-    &quot;username&quot;: &quot;MAIN&quot;
-  },
-  &quot;next_action&quot;: null,
-  &quot;object&quot;: &quot;payment_intent&quot;,
-  &quot;on_behalf_of&quot;: null,
-  &quot;payment_method&quot;: &quot;pm_1OZHmkBvgmz6lyaoHl1VI4UL&quot;,
-  &quot;payment_method_configuration_details&quot;: null,
-  &quot;payment_method_options&quot;: {
-    &quot;card&quot;: {
-      &quot;installments&quot;: null,
-      &quot;mandate_options&quot;: null,
-      &quot;network&quot;: null,
-      &quot;request_three_d_secure&quot;: &quot;automatic&quot;
-    }
-  },
-  &quot;payment_method_types&quot;: [
-    &quot;card&quot;
-  ],
-  &quot;processing&quot;: null,
-  &quot;receipt_email&quot;: null,
-  &quot;review&quot;: null,
-  &quot;setup_future_usage&quot;: null,
-  &quot;shipping&quot;: {
-    &quot;address&quot;: {
-      &quot;city&quot;: &quot;anywhere&quot;,
-      &quot;country&quot;: &quot;AT&quot;,
-      &quot;line1&quot;: &quot;anywhere&quot;,
-      &quot;line2&quot;: &quot;dddfghghjj&quot;,
-      &quot;postal_code&quot;: &quot;anywhere&quot;,
-      &quot;state&quot;: &quot;jjhgfdddddd&quot;
-    },
-    &quot;carrier&quot;: null,
-    &quot;name&quot;: &quot;sss&quot;,
-    &quot;phone&quot;: &quot;1234567890&quot;,
-    &quot;tracking_number&quot;: null
-  },
-  &quot;source&quot;: null,
-  &quot;statement_descriptor&quot;: null,
-  &quot;statement_descriptor_suffix&quot;: null,
-  &quot;status&quot;: &quot;succeeded&quot;,
-  &quot;transfer_data&quot;: null,
-  &quot;transfer_group&quot;: null
-}</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        
-          <li><h3>
-          
-            During handling of the above exception (&#x27;charges&#x27;), another exception occurred:
-          
-        </h3></li>
-        
         <li class="frame django">
           
             <code class="fname">/app/.heroku/python/lib/python3.11/site-packages/django/core/handlers/exception.py</code>, line 47, in inner
           
           
-            <div class="context" id="c139978903977472">
+            <div class="context" id="c140616543320192">
               
-                <ol start="40" class="pre-context" id="pre139978903977472">
+                <ol start="40" class="pre-context" id="pre140616543320192">
                 
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>                response = await sync_to_async(response_for_exception, thread_sensitive=False)(request, exc)</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>                response = await sync_to_async(response_for_exception, thread_sensitive=False)(request, exc)</pre></li>
                 
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>            return response</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>            return response</pre></li>
                 
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>        return inner</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>        return inner</pre></li>
                 
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>    else:</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>    else:</pre></li>
                 
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>        @wraps(get_response)</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>        @wraps(get_response)</pre></li>
                 
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>        def inner(request):</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>        def inner(request):</pre></li>
                 
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>            try:</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>            try:</pre></li>
                 
                 </ol>
               
               <ol start="47" class="context-line">
-                <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>                response = get_response(request)</pre> <span>…</span></li>
+                <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>                response = get_response(request)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='48' class="post-context" id="post139978903977472">
+                <ol start='48' class="post-context" id="post140616543320192">
                   
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>            except Exception as exc:</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>            except Exception as exc:</pre></li>
                   
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>                response = response_for_exception(request, exc)</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>                response = response_for_exception(request, exc)</pre></li>
                   
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>            return response</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>            return response</pre></li>
                   
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre>        return inner</pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre>        return inner</pre></li>
                   
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre139978903977472', 'post139978903977472')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543320192', 'post140616543320192')"><pre></pre></li>
                   
               </ol>
               
@@ -680,10 +214,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '139978903977472')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140616543320192')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v139978903977472">
+            <table class="vars" id="v140616543320192">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -694,12 +228,12 @@
                 
                   <tr>
                     <td>exc</td>
-                    <td class="code"><pre>AttributeError(&#x27;charges&#x27;)</pre></td>
+                    <td class="code"><pre>NameError(&quot;name &#x27;stripe&#x27; is not defined&quot;)</pre></td>
                   </tr>
                 
                   <tr>
                     <td>get_response</td>
-                    <td class="code"><pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x7f4f6277f0d0&gt;&gt;</pre></td>
+                    <td class="code"><pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x7fe3d8b9b210&gt;&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -718,43 +252,43 @@
             <code class="fname">/app/.heroku/python/lib/python3.11/site-packages/django/core/handlers/base.py</code>, line 181, in _get_response
           
           
-            <div class="context" id="c139978926669696">
+            <div class="context" id="c140616543320960">
               
-                <ol start="174" class="pre-context" id="pre139978926669696">
+                <ol start="174" class="pre-context" id="pre140616543320960">
                 
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>        if response is None:</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>        if response is None:</pre></li>
                 
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>            wrapped_callback = self.make_view_atomic(callback)</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>            wrapped_callback = self.make_view_atomic(callback)</pre></li>
                 
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>            # If it is an asynchronous view, run it in a subthread.</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>            # If it is an asynchronous view, run it in a subthread.</pre></li>
                 
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>            if asyncio.iscoroutinefunction(wrapped_callback):</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>            if asyncio.iscoroutinefunction(wrapped_callback):</pre></li>
                 
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>                wrapped_callback = async_to_sync(wrapped_callback)</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>                wrapped_callback = async_to_sync(wrapped_callback)</pre></li>
                 
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>            try:</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>            try:</pre></li>
                 
                 </ol>
               
               <ol start="181" class="context-line">
-                <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>…</span></li>
+                <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='182' class="post-context" id="post139978926669696">
+                <ol start='182' class="post-context" id="post140616543320960">
                   
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>            except Exception as e:</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>            except Exception as e:</pre></li>
                   
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>                response = self.process_exception_by_middleware(e, request)</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>                response = self.process_exception_by_middleware(e, request)</pre></li>
                   
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>                if response is None:</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>                if response is None:</pre></li>
                   
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>                    raise</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>                    raise</pre></li>
                   
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre139978926669696', 'post139978926669696')"><pre>        # Complain if the view returned None (a common error).</pre></li>
+                  <li onclick="toggle('pre140616543320960', 'post140616543320960')"><pre>        # Complain if the view returned None (a common error).</pre></li>
                   
               </ol>
               
@@ -763,10 +297,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '139978926669696')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140616543320960')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v139978926669696">
+            <table class="vars" id="v140616543320960">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -777,7 +311,7 @@
                 
                   <tr>
                     <td>callback</td>
-                    <td class="code"><pre>&lt;function webhook at 0x7f4f61f69c60&gt;</pre></td>
+                    <td class="code"><pre>&lt;function webhook at 0x7fe3d83c1c60&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -792,7 +326,7 @@
                 
                   <tr>
                     <td>middleware_method</td>
-                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7f4f6277f210&gt;&gt;</pre></td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7fe3d8b9b350&gt;&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -807,12 +341,12 @@
                 
                   <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7f4f6277f0d0&gt;</pre></td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7fe3d8b9b210&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>wrapped_callback</td>
-                    <td class="code"><pre>&lt;function webhook at 0x7f4f61f69c60&gt;</pre></td>
+                    <td class="code"><pre>&lt;function webhook at 0x7fe3d83c1c60&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -826,43 +360,43 @@
             <code class="fname">/app/.heroku/python/lib/python3.11/site-packages/django/views/decorators/http.py</code>, line 40, in inner
           
           
-            <div class="context" id="c139978926669504">
+            <div class="context" id="c140616543320128">
               
-                <ol start="33" class="pre-context" id="pre139978926669504">
+                <ol start="33" class="pre-context" id="pre140616543320128">
                 
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>                response = HttpResponseNotAllowed(request_method_list)</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>                response = HttpResponseNotAllowed(request_method_list)</pre></li>
                 
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>                log_response(</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>                log_response(</pre></li>
                 
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>                    &#x27;Method Not Allowed (%s): %s&#x27;, request.method, request.path,</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>                    &#x27;Method Not Allowed (%s): %s&#x27;, request.method, request.path,</pre></li>
                 
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>                    response=response,</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>                    response=response,</pre></li>
                 
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>                    request=request,</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>                    request=request,</pre></li>
                 
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>                )</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>                )</pre></li>
                 
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>                return response</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>                return response</pre></li>
                 
                 </ol>
               
               <ol start="40" class="context-line">
-                <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>            return func(request, *args, **kwargs)</pre> <span>…</span></li>
+                <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>            return func(request, *args, **kwargs)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='41' class="post-context" id="post139978926669504">
+                <ol start='41' class="post-context" id="post140616543320128">
                   
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>        return inner</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>        return inner</pre></li>
                   
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>    return decorator</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>    return decorator</pre></li>
                   
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>require_GET = require_http_methods([&quot;GET&quot;])</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>require_GET = require_http_methods([&quot;GET&quot;])</pre></li>
                   
-                  <li onclick="toggle('pre139978926669504', 'post139978926669504')"><pre>require_GET.__doc__ = &quot;Decorator to require that a view only accepts the GET method.&quot;</pre></li>
+                  <li onclick="toggle('pre140616543320128', 'post140616543320128')"><pre>require_GET.__doc__ = &quot;Decorator to require that a view only accepts the GET method.&quot;</pre></li>
                   
               </ol>
               
@@ -871,10 +405,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '139978926669504')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140616543320128')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v139978926669504">
+            <table class="vars" id="v140616543320128">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -890,7 +424,7 @@
                 
                   <tr>
                     <td>func</td>
-                    <td class="code"><pre>&lt;function webhook at 0x7f4f61f69bc0&gt;</pre></td>
+                    <td class="code"><pre>&lt;function webhook at 0x7fe3d83c1bc0&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -919,35 +453,35 @@
             <code class="fname">/app/.heroku/python/lib/python3.11/site-packages/django/views/decorators/csrf.py</code>, line 54, in wrapped_view
           
           
-            <div class="context" id="c139978922033664">
+            <div class="context" id="c140616543318208">
               
-                <ol start="47" class="pre-context" id="pre139978922033664">
+                <ol start="47" class="pre-context" id="pre140616543318208">
                 
-                  <li onclick="toggle('pre139978922033664', 'post139978922033664')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543318208', 'post140616543318208')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre139978922033664', 'post139978922033664')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543318208', 'post140616543318208')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre139978922033664', 'post139978922033664')"><pre>def csrf_exempt(view_func):</pre></li>
+                  <li onclick="toggle('pre140616543318208', 'post140616543318208')"><pre>def csrf_exempt(view_func):</pre></li>
                 
-                  <li onclick="toggle('pre139978922033664', 'post139978922033664')"><pre>    &quot;&quot;&quot;Mark a view function as being exempt from the CSRF view protection.&quot;&quot;&quot;</pre></li>
+                  <li onclick="toggle('pre140616543318208', 'post140616543318208')"><pre>    &quot;&quot;&quot;Mark a view function as being exempt from the CSRF view protection.&quot;&quot;&quot;</pre></li>
                 
-                  <li onclick="toggle('pre139978922033664', 'post139978922033664')"><pre>    # view_func.csrf_exempt = True would also work, but decorators are nicer</pre></li>
+                  <li onclick="toggle('pre140616543318208', 'post140616543318208')"><pre>    # view_func.csrf_exempt = True would also work, but decorators are nicer</pre></li>
                 
-                  <li onclick="toggle('pre139978922033664', 'post139978922033664')"><pre>    # if they don&#x27;t have side effects, so return a new function.</pre></li>
+                  <li onclick="toggle('pre140616543318208', 'post140616543318208')"><pre>    # if they don&#x27;t have side effects, so return a new function.</pre></li>
                 
-                  <li onclick="toggle('pre139978922033664', 'post139978922033664')"><pre>    def wrapped_view(*args, **kwargs):</pre></li>
+                  <li onclick="toggle('pre140616543318208', 'post140616543318208')"><pre>    def wrapped_view(*args, **kwargs):</pre></li>
                 
                 </ol>
               
               <ol start="54" class="context-line">
-                <li onclick="toggle('pre139978922033664', 'post139978922033664')"><pre>        return view_func(*args, **kwargs)</pre> <span>…</span></li>
+                <li onclick="toggle('pre140616543318208', 'post140616543318208')"><pre>        return view_func(*args, **kwargs)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='55' class="post-context" id="post139978922033664">
+                <ol start='55' class="post-context" id="post140616543318208">
                   
-                  <li onclick="toggle('pre139978922033664', 'post139978922033664')"><pre>    wrapped_view.csrf_exempt = True</pre></li>
+                  <li onclick="toggle('pre140616543318208', 'post140616543318208')"><pre>    wrapped_view.csrf_exempt = True</pre></li>
                   
-                  <li onclick="toggle('pre139978922033664', 'post139978922033664')"><pre>    return wraps(view_func)(wrapped_view)</pre></li>
+                  <li onclick="toggle('pre140616543318208', 'post140616543318208')"><pre>    return wraps(view_func)(wrapped_view)</pre></li>
                   
               </ol>
               
@@ -956,10 +490,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '139978922033664')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140616543318208')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v139978922033664">
+            <table class="vars" id="v140616543318208">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -980,7 +514,7 @@
                 
                   <tr>
                     <td>view_func</td>
-                    <td class="code"><pre>&lt;function webhook at 0x7f4f61f699e0&gt;</pre></td>
+                    <td class="code"><pre>&lt;function webhook at 0x7fe3d83c19e0&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -994,33 +528,33 @@
             <code class="fname">/app/checkout/webhooks.py</code>, line 54, in webhook
           
           
-            <div class="context" id="c139978931257088">
+            <div class="context" id="c140616543315136">
               
-                <ol start="47" class="pre-context" id="pre139978931257088">
+                <ol start="47" class="pre-context" id="pre140616543315136">
                 
-                  <li onclick="toggle('pre139978931257088', 'post139978931257088')"><pre>    event_type = event[&#x27;type&#x27;]</pre></li>
+                  <li onclick="toggle('pre140616543315136', 'post140616543315136')"><pre>    event_type = event[&#x27;type&#x27;]</pre></li>
                 
-                  <li onclick="toggle('pre139978931257088', 'post139978931257088')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543315136', 'post140616543315136')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre139978931257088', 'post139978931257088')"><pre>    # If there&#x27;s a handler for it, get it from the event map</pre></li>
+                  <li onclick="toggle('pre140616543315136', 'post140616543315136')"><pre>    # If there&#x27;s a handler for it, get it from the event map</pre></li>
                 
-                  <li onclick="toggle('pre139978931257088', 'post139978931257088')"><pre>    # Use the generic one by default</pre></li>
+                  <li onclick="toggle('pre140616543315136', 'post140616543315136')"><pre>    # Use the generic one by default</pre></li>
                 
-                  <li onclick="toggle('pre139978931257088', 'post139978931257088')"><pre>    event_handler = event_map.get(event_type, handler.handle_event)</pre></li>
+                  <li onclick="toggle('pre140616543315136', 'post140616543315136')"><pre>    event_handler = event_map.get(event_type, handler.handle_event)</pre></li>
                 
-                  <li onclick="toggle('pre139978931257088', 'post139978931257088')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543315136', 'post140616543315136')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre139978931257088', 'post139978931257088')"><pre>    # Call the event handler with the event</pre></li>
+                  <li onclick="toggle('pre140616543315136', 'post140616543315136')"><pre>    # Call the event handler with the event</pre></li>
                 
                 </ol>
               
               <ol start="54" class="context-line">
-                <li onclick="toggle('pre139978931257088', 'post139978931257088')"><pre>    response = event_handler(event)</pre> <span>…</span></li>
+                <li onclick="toggle('pre140616543315136', 'post140616543315136')"><pre>    response = event_handler(event)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='55' class="post-context" id="post139978931257088">
+                <ol start='55' class="post-context" id="post140616543315136">
                   
-                  <li onclick="toggle('pre139978931257088', 'post139978931257088')"><pre>    return response</pre></li>
+                  <li onclick="toggle('pre140616543315136', 'post140616543315136')"><pre>    return response</pre></li>
                   
               </ol>
               
@@ -1029,10 +563,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '139978931257088')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140616543315136')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v139978931257088">
+            <table class="vars" id="v140616543315136">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -1043,17 +577,17 @@
                 
                   <tr>
                     <td>event</td>
-                    <td class="code"><pre>&lt;Event event id=evt_3OZHmKBvgmz6lyao0PLc0GUR at 0x7f4f616b1f70&gt; JSON: {
+                    <td class="code"><pre>&lt;Event event id=evt_3OZI7IBvgmz6lyao0zEpcZL5 at 0x7fe3d712f590&gt; JSON: {
   &quot;api_version&quot;: &quot;2023-08-16&quot;,
-  &quot;created&quot;: 1705431295,
+  &quot;created&quot;: 1705432603,
   &quot;data&quot;: {
     &quot;object&quot;: {
-      &quot;amount&quot;: 14999,
+      &quot;amount&quot;: 12999,
       &quot;amount_capturable&quot;: 0,
       &quot;amount_details&quot;: {
         &quot;tip&quot;: {}
       },
-      &quot;amount_received&quot;: 14999,
+      &quot;amount_received&quot;: 12999,
       &quot;application&quot;: null,
       &quot;application_fee_amount&quot;: null,
       &quot;automatic_payment_methods&quot;: {
@@ -1063,26 +597,26 @@
       &quot;canceled_at&quot;: null,
       &quot;cancellation_reason&quot;: null,
       &quot;capture_method&quot;: &quot;automatic&quot;,
-      &quot;client_secret&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d_secret_Yoyv8NSEtDisRom1ColVbCP4h&quot;,
+      &quot;client_secret&quot;: &quot;pi_3OZI7IBvgmz6lyao09LKWP7f_secret_NVD2dJwGZNBYOhQEsI5Xxv4kE&quot;,
       &quot;confirmation_method&quot;: &quot;automatic&quot;,
-      &quot;created&quot;: 1705431268,
+      &quot;created&quot;: 1705432568,
       &quot;currency&quot;: &quot;gbp&quot;,
       &quot;customer&quot;: null,
       &quot;description&quot;: null,
-      &quot;id&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d&quot;,
+      &quot;id&quot;: &quot;pi_3OZI7IBvgmz6lyao09LKWP7f&quot;,
       &quot;invoice&quot;: null,
       &quot;last_payment_error&quot;: null,
-      &quot;latest_charge&quot;: &quot;ch_3OZHmKBvgmz6lyao0F9auXAV&quot;,
+      &quot;latest_charge&quot;: &quot;ch_3OZI7IBvgmz6lyao0aPhcM2V&quot;,
       &quot;livemode&quot;: false,
       &quot;metadata&quot;: {
-        &quot;bag&quot;: &quot;{\&quot;4\&quot;: {\&quot;items_by_size\&quot;: {\&quot;4\&quot;: 1}}}&quot;,
+        &quot;bag&quot;: &quot;{\&quot;3\&quot;: {\&quot;items_by_size\&quot;: {\&quot;4\&quot;: 1}}}&quot;,
         &quot;save_info&quot;: &quot;true&quot;,
         &quot;username&quot;: &quot;MAIN&quot;
       },
       &quot;next_action&quot;: null,
       &quot;object&quot;: &quot;payment_intent&quot;,
       &quot;on_behalf_of&quot;: null,
-      &quot;payment_method&quot;: &quot;pm_1OZHmkBvgmz6lyaoHl1VI4UL&quot;,
+      &quot;payment_method&quot;: &quot;pm_1OZI7qBvgmz6lyaoQpV1B7ju&quot;,
       &quot;payment_method_configuration_details&quot;: null,
       &quot;payment_method_options&quot;: {
         &quot;card&quot;: {
@@ -1121,13 +655,13 @@
       &quot;transfer_group&quot;: null
     }
   },
-  &quot;id&quot;: &quot;evt_3OZHmKBvgmz6lyao0PLc0GUR&quot;,
+  &quot;id&quot;: &quot;evt_3OZI7IBvgmz6lyao0zEpcZL5&quot;,
   &quot;livemode&quot;: false,
   &quot;object&quot;: &quot;event&quot;,
   &quot;pending_webhooks&quot;: 2,
   &quot;request&quot;: {
-    &quot;id&quot;: &quot;req_jhDCjj1bKG6FAW&quot;,
-    &quot;idempotency_key&quot;: &quot;ed7146b2-1b66-4036-807e-9f826d114e2b&quot;
+    &quot;id&quot;: &quot;req_ZMaj7qr4QMIUF2&quot;,
+    &quot;idempotency_key&quot;: &quot;1568931e-49e0-4914-9560-d553519faae4&quot;
   },
   &quot;type&quot;: &quot;payment_intent.succeeded&quot;
 }</pre></td>
@@ -1135,13 +669,13 @@
                 
                   <tr>
                     <td>event_handler</td>
-                    <td class="code"><pre>&lt;bound method StripeWH_Handler.handle_payment_intent_succeeded of &lt;checkout.webhook_handler.StripeWH_Handler object at 0x7f4f60d61110&gt;&gt;</pre></td>
+                    <td class="code"><pre>&lt;bound method StripeWH_Handler.handle_payment_intent_succeeded of &lt;checkout.webhook_handler.StripeWH_Handler object at 0x7fe3d71d3e10&gt;&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>event_map</td>
-                    <td class="code"><pre>{&#x27;payment_intent.payment_failed&#x27;: &lt;bound method StripeWH_Handler.handle_payment_intent_payment_failed of &lt;checkout.webhook_handler.StripeWH_Handler object at 0x7f4f60d61110&gt;&gt;,
- &#x27;payment_intent.succeeded&#x27;: &lt;bound method StripeWH_Handler.handle_payment_intent_succeeded of &lt;checkout.webhook_handler.StripeWH_Handler object at 0x7f4f60d61110&gt;&gt;}</pre></td>
+                    <td class="code"><pre>{&#x27;payment_intent.payment_failed&#x27;: &lt;bound method StripeWH_Handler.handle_payment_intent_payment_failed of &lt;checkout.webhook_handler.StripeWH_Handler object at 0x7fe3d71d3e10&gt;&gt;,
+ &#x27;payment_intent.succeeded&#x27;: &lt;bound method StripeWH_Handler.handle_payment_intent_succeeded of &lt;checkout.webhook_handler.StripeWH_Handler object at 0x7fe3d71d3e10&gt;&gt;}</pre></td>
                   </tr>
                 
                   <tr>
@@ -1151,29 +685,29 @@
                 
                   <tr>
                     <td>handler</td>
-                    <td class="code"><pre>&lt;checkout.webhook_handler.StripeWH_Handler object at 0x7f4f60d61110&gt;</pre></td>
+                    <td class="code"><pre>&lt;checkout.webhook_handler.StripeWH_Handler object at 0x7fe3d71d3e10&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>payload</td>
-                    <td class="code"><pre>(b&#x27;{\n  &quot;id&quot;: &quot;evt_3OZHmKBvgmz6lyao0PLc0GUR&quot;,\n  &quot;object&quot;: &quot;event&quot;,\n  &quot;api_ve&#x27;
- b&#x27;rsion&quot;: &quot;2023-08-16&quot;,\n  &quot;created&quot;: 1705431295,\n  &quot;data&quot;: {\n    &quot;object&quot;:&#x27;
- b&#x27; {\n      &quot;id&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d&quot;,\n      &quot;object&quot;: &quot;payment_i&#x27;
- b&#x27;ntent&quot;,\n      &quot;amount&quot;: 14999,\n      &quot;amount_capturable&quot;: 0,\n      &quot;amou&#x27;
+                    <td class="code"><pre>(b&#x27;{\n  &quot;id&quot;: &quot;evt_3OZI7IBvgmz6lyao0zEpcZL5&quot;,\n  &quot;object&quot;: &quot;event&quot;,\n  &quot;api_ve&#x27;
+ b&#x27;rsion&quot;: &quot;2023-08-16&quot;,\n  &quot;created&quot;: 1705432603,\n  &quot;data&quot;: {\n    &quot;object&quot;:&#x27;
+ b&#x27; {\n      &quot;id&quot;: &quot;pi_3OZI7IBvgmz6lyao09LKWP7f&quot;,\n      &quot;object&quot;: &quot;payment_i&#x27;
+ b&#x27;ntent&quot;,\n      &quot;amount&quot;: 12999,\n      &quot;amount_capturable&quot;: 0,\n      &quot;amou&#x27;
  b&#x27;nt_details&quot;: {\n        &quot;tip&quot;: {\n        }\n      },\n      &quot;amount_receive&#x27;
- b&#x27;d&quot;: 14999,\n      &quot;application&quot;: null,\n      &quot;application_fee_amount&quot;: nu&#x27;
+ b&#x27;d&quot;: 12999,\n      &quot;application&quot;: null,\n      &quot;application_fee_amount&quot;: nu&#x27;
  b&#x27;ll,\n      &quot;automatic_payment_methods&quot;: {\n        &quot;allow_redirects&quot;: &quot;alw&#x27;
  b&#x27;ays&quot;,\n        &quot;enabled&quot;: true\n      },\n      &quot;canceled_at&quot;: null,\n      &#x27;
  b&#x27;&quot;cancellation_reason&quot;: null,\n      &quot;capture_method&quot;: &quot;automatic&quot;,\n      &#x27;
- b&#x27;&quot;client_secret&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d_secret_Yoyv8NSEtDisRom1ColVbCP&#x27;
- b&#x27;4h&quot;,\n      &quot;confirmation_method&quot;: &quot;automatic&quot;,\n      &quot;created&quot;: 17054312&#x27;
+ b&#x27;&quot;client_secret&quot;: &quot;pi_3OZI7IBvgmz6lyao09LKWP7f_secret_NVD2dJwGZNBYOhQEsI5Xxv4&#x27;
+ b&#x27;kE&quot;,\n      &quot;confirmation_method&quot;: &quot;automatic&quot;,\n      &quot;created&quot;: 17054325&#x27;
  b&#x27;68,\n      &quot;currency&quot;: &quot;gbp&quot;,\n      &quot;customer&quot;: null,\n      &quot;description&quot;&#x27;
  b&#x27;: null,\n      &quot;invoice&quot;: null,\n      &quot;last_payment_error&quot;: null,\n      &quot;&#x27;
- b&#x27;latest_charge&quot;: &quot;ch_3OZHmKBvgmz6lyao0F9auXAV&quot;,\n      &quot;livemode&quot;: false,\n&#x27;
- b&#x27;      &quot;metadata&quot;: {\n        &quot;bag&quot;: &quot;{\\&quot;4\\&quot;: {\\&quot;items_by_size\\&quot;: {\\&quot;4&#x27;
+ b&#x27;latest_charge&quot;: &quot;ch_3OZI7IBvgmz6lyao0aPhcM2V&quot;,\n      &quot;livemode&quot;: false,\n&#x27;
+ b&#x27;      &quot;metadata&quot;: {\n        &quot;bag&quot;: &quot;{\\&quot;3\\&quot;: {\\&quot;items_by_size\\&quot;: {\\&quot;4&#x27;
  b&#x27;\\&quot;: 1}}}&quot;,\n        &quot;save_info&quot;: &quot;true&quot;,\n        &quot;username&quot;: &quot;MAIN&quot;\n     &#x27;
  b&#x27; },\n      &quot;next_action&quot;: null,\n      &quot;on_behalf_of&quot;: null,\n      &quot;paymen&#x27;
- b&#x27;t_method&quot;: &quot;pm_1OZHmkBvgmz6lyaoHl1VI4UL&quot;,\n      &quot;payment_method_configur&#x27;
+ b&#x27;t_method&quot;: &quot;pm_1OZI7qBvgmz6lyaoQpV1B7ju&quot;,\n      &quot;payment_method_configur&#x27;
  b&#x27;ation_details&quot;: null,\n      &quot;payment_method_options&quot;: {\n        &quot;card&quot;: &#x27;
  b&#x27;{\n          &quot;installments&quot;: null,\n          &quot;mandate_options&quot;: null,\n   &#x27;
  b&#x27;       &quot;network&quot;: null,\n          &quot;request_three_d_secure&quot;: &quot;automatic&quot;\n&#x27;
@@ -1188,8 +722,8 @@
  b&#x27; &quot;statement_descriptor&quot;: null,\n      &quot;statement_descriptor_suffix&quot;: null&#x27;
  b&#x27;,\n      &quot;status&quot;: &quot;succeeded&quot;,\n      &quot;transfer_data&quot;: null,\n      &quot;trans&#x27;
  b&#x27;fer_group&quot;: null\n    }\n  },\n  &quot;livemode&quot;: false,\n  &quot;pending_webhooks&quot;: 2&#x27;
- b&#x27;,\n  &quot;request&quot;: {\n    &quot;id&quot;: &quot;req_jhDCjj1bKG6FAW&quot;,\n    &quot;idempotency_key&quot;: &#x27;
- b&#x27;&quot;ed7146b2-1b66-4036-807e-9f826d114e2b&quot;\n  },\n  &quot;type&quot;: &quot;payment_intent.su&#x27;
+ b&#x27;,\n  &quot;request&quot;: {\n    &quot;id&quot;: &quot;req_ZMaj7qr4QMIUF2&quot;,\n    &quot;idempotency_key&quot;: &#x27;
+ b&#x27;&quot;1568931e-49e0-4914-9560-d553519faae4&quot;\n  },\n  &quot;type&quot;: &quot;payment_intent.su&#x27;
  b&#x27;cceeded&quot;\n}&#x27;)</pre></td>
                   </tr>
                 
@@ -1200,7 +734,7 @@
                 
                   <tr>
                     <td>sig_header</td>
-                    <td class="code"><pre>&#x27;t=1705431295,v1=78775c424d773cb16fb21a11a9cc2debbc7cebc416c3ae9da405cb1571c4d381,v0=fb28b3652cf611a86c91f5af5847a90c111c34b9210009fcfd1326b979bbb5a5&#x27;</pre></td>
+                    <td class="code"><pre>&#x27;t=1705432603,v1=4909617b57bda5a0d1574c87d00d56d7be52e9ee3087a9764099404ff3f7a858,v0=8dd0cf011bc1bdcf46e861092372098ae686aad376a880d24d6cc39c149b2151&#x27;</pre></td>
                   </tr>
                 
                   <tr>
@@ -1216,46 +750,46 @@
         
         <li class="frame user">
           
-            <code class="fname">/app/checkout/webhook_handler.py</code>, line 54, in handle_payment_intent_succeeded
+            <code class="fname">/app/checkout/webhook_handler.py</code>, line 55, in handle_payment_intent_succeeded
           
           
-            <div class="context" id="c139978931254528">
+            <div class="context" id="c140616543305792">
               
-                <ol start="47" class="pre-context" id="pre139978931254528">
+                <ol start="48" class="pre-context" id="pre140616543305792">
                 
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        Handle the payment_intent.succeeded webhook from Stripe</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        &quot;&quot;&quot;</pre></li>
                 
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        &quot;&quot;&quot;</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        intent = event.data.object</pre></li>
                 
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        intent = event.data.object</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        pid = intent.id</pre></li>
                 
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        pid = intent.id</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        bag = intent.metadata.bag</pre></li>
                 
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        bag = intent.metadata.bag</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        save_info = intent.metadata.save_info</pre></li>
                 
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        save_info = intent.metadata.save_info</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        # Get the Charge object</pre></li>
                 
                 </ol>
               
-              <ol start="54" class="context-line">
-                <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        billing_details = intent.charges.data[0].billing_details</pre> <span>…</span></li>
+              <ol start="55" class="context-line">
+                <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        stripe_charge = stripe.Charge.retrieve(</pre> <span>…</span></li>
               </ol>
               
-                <ol start='55' class="post-context" id="post139978931254528">
+                <ol start='56' class="post-context" id="post140616543305792">
                   
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        shipping_details = intent.shipping</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>            intent.latest_charge</pre></li>
                   
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        grand_total = round(intent.charges.data[0].amount / 100, 2)</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        )</pre></li>
                   
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre></pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        # Clean data in the shipping details</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        billing_details = stripe_charge.billing_details # updated</pre></li>
                   
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>        for field, value in shipping_details.address.items():</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        shipping_details = intent.shipping</pre></li>
                   
-                  <li onclick="toggle('pre139978931254528', 'post139978931254528')"><pre>            if value == &quot;&quot;:</pre></li>
+                  <li onclick="toggle('pre140616543305792', 'post140616543305792')"><pre>        grand_total = round(stripe_charge.amount / 100, 2) # updated</pre></li>
                   
               </ol>
               
@@ -1264,10 +798,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '139978931254528')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140616543305792')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v139978931254528">
+            <table class="vars" id="v140616543305792">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -1278,22 +812,22 @@
                 
                   <tr>
                     <td>bag</td>
-                    <td class="code"><pre>&#x27;{&quot;4&quot;: {&quot;items_by_size&quot;: {&quot;4&quot;: 1}}}&#x27;</pre></td>
+                    <td class="code"><pre>&#x27;{&quot;3&quot;: {&quot;items_by_size&quot;: {&quot;4&quot;: 1}}}&#x27;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>event</td>
-                    <td class="code"><pre>&lt;Event event id=evt_3OZHmKBvgmz6lyao0PLc0GUR at 0x7f4f616b1f70&gt; JSON: {
+                    <td class="code"><pre>&lt;Event event id=evt_3OZI7IBvgmz6lyao0zEpcZL5 at 0x7fe3d712f590&gt; JSON: {
   &quot;api_version&quot;: &quot;2023-08-16&quot;,
-  &quot;created&quot;: 1705431295,
+  &quot;created&quot;: 1705432603,
   &quot;data&quot;: {
     &quot;object&quot;: {
-      &quot;amount&quot;: 14999,
+      &quot;amount&quot;: 12999,
       &quot;amount_capturable&quot;: 0,
       &quot;amount_details&quot;: {
         &quot;tip&quot;: {}
       },
-      &quot;amount_received&quot;: 14999,
+      &quot;amount_received&quot;: 12999,
       &quot;application&quot;: null,
       &quot;application_fee_amount&quot;: null,
       &quot;automatic_payment_methods&quot;: {
@@ -1303,26 +837,26 @@
       &quot;canceled_at&quot;: null,
       &quot;cancellation_reason&quot;: null,
       &quot;capture_method&quot;: &quot;automatic&quot;,
-      &quot;client_secret&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d_secret_Yoyv8NSEtDisRom1ColVbCP4h&quot;,
+      &quot;client_secret&quot;: &quot;pi_3OZI7IBvgmz6lyao09LKWP7f_secret_NVD2dJwGZNBYOhQEsI5Xxv4kE&quot;,
       &quot;confirmation_method&quot;: &quot;automatic&quot;,
-      &quot;created&quot;: 1705431268,
+      &quot;created&quot;: 1705432568,
       &quot;currency&quot;: &quot;gbp&quot;,
       &quot;customer&quot;: null,
       &quot;description&quot;: null,
-      &quot;id&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d&quot;,
+      &quot;id&quot;: &quot;pi_3OZI7IBvgmz6lyao09LKWP7f&quot;,
       &quot;invoice&quot;: null,
       &quot;last_payment_error&quot;: null,
-      &quot;latest_charge&quot;: &quot;ch_3OZHmKBvgmz6lyao0F9auXAV&quot;,
+      &quot;latest_charge&quot;: &quot;ch_3OZI7IBvgmz6lyao0aPhcM2V&quot;,
       &quot;livemode&quot;: false,
       &quot;metadata&quot;: {
-        &quot;bag&quot;: &quot;{\&quot;4\&quot;: {\&quot;items_by_size\&quot;: {\&quot;4\&quot;: 1}}}&quot;,
+        &quot;bag&quot;: &quot;{\&quot;3\&quot;: {\&quot;items_by_size\&quot;: {\&quot;4\&quot;: 1}}}&quot;,
         &quot;save_info&quot;: &quot;true&quot;,
         &quot;username&quot;: &quot;MAIN&quot;
       },
       &quot;next_action&quot;: null,
       &quot;object&quot;: &quot;payment_intent&quot;,
       &quot;on_behalf_of&quot;: null,
-      &quot;payment_method&quot;: &quot;pm_1OZHmkBvgmz6lyaoHl1VI4UL&quot;,
+      &quot;payment_method&quot;: &quot;pm_1OZI7qBvgmz6lyaoQpV1B7ju&quot;,
       &quot;payment_method_configuration_details&quot;: null,
       &quot;payment_method_options&quot;: {
         &quot;card&quot;: {
@@ -1361,13 +895,13 @@
       &quot;transfer_group&quot;: null
     }
   },
-  &quot;id&quot;: &quot;evt_3OZHmKBvgmz6lyao0PLc0GUR&quot;,
+  &quot;id&quot;: &quot;evt_3OZI7IBvgmz6lyao0zEpcZL5&quot;,
   &quot;livemode&quot;: false,
   &quot;object&quot;: &quot;event&quot;,
   &quot;pending_webhooks&quot;: 2,
   &quot;request&quot;: {
-    &quot;id&quot;: &quot;req_jhDCjj1bKG6FAW&quot;,
-    &quot;idempotency_key&quot;: &quot;ed7146b2-1b66-4036-807e-9f826d114e2b&quot;
+    &quot;id&quot;: &quot;req_ZMaj7qr4QMIUF2&quot;,
+    &quot;idempotency_key&quot;: &quot;1568931e-49e0-4914-9560-d553519faae4&quot;
   },
   &quot;type&quot;: &quot;payment_intent.succeeded&quot;
 }</pre></td>
@@ -1375,13 +909,13 @@
                 
                   <tr>
                     <td>intent</td>
-                    <td class="code"><pre>&lt;PaymentIntent payment_intent id=pi_3OZHmKBvgmz6lyao0Ki8Nz9d at 0x7f4f60cf2d50&gt; JSON: {
-  &quot;amount&quot;: 14999,
+                    <td class="code"><pre>&lt;PaymentIntent payment_intent id=pi_3OZI7IBvgmz6lyao09LKWP7f at 0x7fe3d712f2f0&gt; JSON: {
+  &quot;amount&quot;: 12999,
   &quot;amount_capturable&quot;: 0,
   &quot;amount_details&quot;: {
     &quot;tip&quot;: {}
   },
-  &quot;amount_received&quot;: 14999,
+  &quot;amount_received&quot;: 12999,
   &quot;application&quot;: null,
   &quot;application_fee_amount&quot;: null,
   &quot;automatic_payment_methods&quot;: {
@@ -1391,26 +925,26 @@
   &quot;canceled_at&quot;: null,
   &quot;cancellation_reason&quot;: null,
   &quot;capture_method&quot;: &quot;automatic&quot;,
-  &quot;client_secret&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d_secret_Yoyv8NSEtDisRom1ColVbCP4h&quot;,
+  &quot;client_secret&quot;: &quot;pi_3OZI7IBvgmz6lyao09LKWP7f_secret_NVD2dJwGZNBYOhQEsI5Xxv4kE&quot;,
   &quot;confirmation_method&quot;: &quot;automatic&quot;,
-  &quot;created&quot;: 1705431268,
+  &quot;created&quot;: 1705432568,
   &quot;currency&quot;: &quot;gbp&quot;,
   &quot;customer&quot;: null,
   &quot;description&quot;: null,
-  &quot;id&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d&quot;,
+  &quot;id&quot;: &quot;pi_3OZI7IBvgmz6lyao09LKWP7f&quot;,
   &quot;invoice&quot;: null,
   &quot;last_payment_error&quot;: null,
-  &quot;latest_charge&quot;: &quot;ch_3OZHmKBvgmz6lyao0F9auXAV&quot;,
+  &quot;latest_charge&quot;: &quot;ch_3OZI7IBvgmz6lyao0aPhcM2V&quot;,
   &quot;livemode&quot;: false,
   &quot;metadata&quot;: {
-    &quot;bag&quot;: &quot;{\&quot;4\&quot;: {\&quot;items_by_size\&quot;: {\&quot;4\&quot;: 1}}}&quot;,
+    &quot;bag&quot;: &quot;{\&quot;3\&quot;: {\&quot;items_by_size\&quot;: {\&quot;4\&quot;: 1}}}&quot;,
     &quot;save_info&quot;: &quot;true&quot;,
     &quot;username&quot;: &quot;MAIN&quot;
   },
   &quot;next_action&quot;: null,
   &quot;object&quot;: &quot;payment_intent&quot;,
   &quot;on_behalf_of&quot;: null,
-  &quot;payment_method&quot;: &quot;pm_1OZHmkBvgmz6lyaoHl1VI4UL&quot;,
+  &quot;payment_method&quot;: &quot;pm_1OZI7qBvgmz6lyaoQpV1B7ju&quot;,
   &quot;payment_method_configuration_details&quot;: null,
   &quot;payment_method_options&quot;: {
     &quot;card&quot;: {
@@ -1452,7 +986,7 @@
                 
                   <tr>
                     <td>pid</td>
-                    <td class="code"><pre>&#x27;pi_3OZHmKBvgmz6lyao0Ki8Nz9d&#x27;</pre></td>
+                    <td class="code"><pre>&#x27;pi_3OZI7IBvgmz6lyao09LKWP7f&#x27;</pre></td>
                   </tr>
                 
                   <tr>
@@ -1462,157 +996,7 @@
                 
                   <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;checkout.webhook_handler.StripeWH_Handler object at 0x7f4f60d61110&gt;</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        
-        <li class="frame user">
-          
-            <code class="fname">/app/.heroku/python/lib/python3.11/site-packages/stripe/stripe_object.py</code>, line 140, in __getattr__
-          
-          
-            <div class="context" id="c139978931249408">
-              
-                <ol start="133" class="pre-context" id="pre139978931249408">
-                
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>        def __getattr__(self, k):</pre></li>
-                
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>            if k[0] == &quot;_&quot;:</pre></li>
-                
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>                raise AttributeError(k)</pre></li>
-                
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre></pre></li>
-                
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>            try:</pre></li>
-                
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>                return self[k]</pre></li>
-                
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>            except KeyError as err:</pre></li>
-                
-                </ol>
-              
-              <ol start="140" class="context-line">
-                <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>                raise AttributeError(*err.args)</pre> <span>…</span></li>
-              </ol>
-              
-                <ol start='141' class="post-context" id="post139978931249408">
-                  
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre></pre></li>
-                  
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>        def __delattr__(self, k):</pre></li>
-                  
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>            if k[0] == &quot;_&quot; or k in self.__dict__:</pre></li>
-                  
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>                return super(StripeObject, self).__delattr__(k)</pre></li>
-                  
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>            else:</pre></li>
-                  
-                  <li onclick="toggle('pre139978931249408', 'post139978931249408')"><pre>                del self[k]</pre></li>
-                  
-              </ol>
-              
-            </div>
-          
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '139978931249408')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v139978931249408">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>k</td>
-                    <td class="code"><pre>&#x27;charges&#x27;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;PaymentIntent payment_intent id=pi_3OZHmKBvgmz6lyao0Ki8Nz9d at 0x7f4f60cf2d50&gt; JSON: {
-  &quot;amount&quot;: 14999,
-  &quot;amount_capturable&quot;: 0,
-  &quot;amount_details&quot;: {
-    &quot;tip&quot;: {}
-  },
-  &quot;amount_received&quot;: 14999,
-  &quot;application&quot;: null,
-  &quot;application_fee_amount&quot;: null,
-  &quot;automatic_payment_methods&quot;: {
-    &quot;allow_redirects&quot;: &quot;always&quot;,
-    &quot;enabled&quot;: true
-  },
-  &quot;canceled_at&quot;: null,
-  &quot;cancellation_reason&quot;: null,
-  &quot;capture_method&quot;: &quot;automatic&quot;,
-  &quot;client_secret&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d_secret_Yoyv8NSEtDisRom1ColVbCP4h&quot;,
-  &quot;confirmation_method&quot;: &quot;automatic&quot;,
-  &quot;created&quot;: 1705431268,
-  &quot;currency&quot;: &quot;gbp&quot;,
-  &quot;customer&quot;: null,
-  &quot;description&quot;: null,
-  &quot;id&quot;: &quot;pi_3OZHmKBvgmz6lyao0Ki8Nz9d&quot;,
-  &quot;invoice&quot;: null,
-  &quot;last_payment_error&quot;: null,
-  &quot;latest_charge&quot;: &quot;ch_3OZHmKBvgmz6lyao0F9auXAV&quot;,
-  &quot;livemode&quot;: false,
-  &quot;metadata&quot;: {
-    &quot;bag&quot;: &quot;{\&quot;4\&quot;: {\&quot;items_by_size\&quot;: {\&quot;4\&quot;: 1}}}&quot;,
-    &quot;save_info&quot;: &quot;true&quot;,
-    &quot;username&quot;: &quot;MAIN&quot;
-  },
-  &quot;next_action&quot;: null,
-  &quot;object&quot;: &quot;payment_intent&quot;,
-  &quot;on_behalf_of&quot;: null,
-  &quot;payment_method&quot;: &quot;pm_1OZHmkBvgmz6lyaoHl1VI4UL&quot;,
-  &quot;payment_method_configuration_details&quot;: null,
-  &quot;payment_method_options&quot;: {
-    &quot;card&quot;: {
-      &quot;installments&quot;: null,
-      &quot;mandate_options&quot;: null,
-      &quot;network&quot;: null,
-      &quot;request_three_d_secure&quot;: &quot;automatic&quot;
-    }
-  },
-  &quot;payment_method_types&quot;: [
-    &quot;card&quot;
-  ],
-  &quot;processing&quot;: null,
-  &quot;receipt_email&quot;: null,
-  &quot;review&quot;: null,
-  &quot;setup_future_usage&quot;: null,
-  &quot;shipping&quot;: {
-    &quot;address&quot;: {
-      &quot;city&quot;: &quot;anywhere&quot;,
-      &quot;country&quot;: &quot;AT&quot;,
-      &quot;line1&quot;: &quot;anywhere&quot;,
-      &quot;line2&quot;: &quot;dddfghghjj&quot;,
-      &quot;postal_code&quot;: &quot;anywhere&quot;,
-      &quot;state&quot;: &quot;jjhgfdddddd&quot;
-    },
-    &quot;carrier&quot;: null,
-    &quot;name&quot;: &quot;sss&quot;,
-    &quot;phone&quot;: &quot;1234567890&quot;,
-    &quot;tracking_number&quot;: null
-  },
-  &quot;source&quot;: null,
-  &quot;statement_descriptor&quot;: null,
-  &quot;statement_descriptor_suffix&quot;: null,
-  &quot;status&quot;: &quot;succeeded&quot;,
-  &quot;transfer_data&quot;: null,
-  &quot;transfer_group&quot;: null
-}</pre></td>
+                    <td class="code"><pre>&lt;checkout.webhook_handler.StripeWH_Handler object at 0x7fe3d71d3e10&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -1626,7 +1010,7 @@
   <div id="pastebinTraceback" class="pastebin">
     <input type="hidden" name="language" value="PythonConsole">
     <input type="hidden" name="title"
-      value="AttributeError at /checkout/wh/">
+      value="NameError at /checkout/wh/">
     <input type="hidden" name="source" value="Django Dpaste Agent">
     <input type="hidden" name="poster" value="Django">
     <textarea name="content" id="traceback_area" cols="140" rows="25">
@@ -1665,13 +1049,6 @@ Installed Middleware:
  &#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;,
  &#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;]
 Traceback (most recent call last):
-  File "/app/.heroku/python/lib/python3.11/site-packages/stripe/stripe_object.py", line 138, in __getattr__
-    return self[k]
-  File "/app/.heroku/python/lib/python3.11/site-packages/stripe/stripe_object.py", line 180, in __getitem__
-    raise err
-  File "/app/.heroku/python/lib/python3.11/site-packages/stripe/stripe_object.py", line 168, in __getitem__
-    return super(StripeObject, self).__getitem__(k)
-During handling of the above exception (&#x27;charges&#x27;), another exception occurred:
   File "/app/.heroku/python/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
   File "/app/.heroku/python/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
@@ -1682,12 +1059,10 @@ During handling of the above exception (&#x27;charges&#x27;), another exception 
     return view_func(*args, **kwargs)
   File "/app/checkout/webhooks.py", line 54, in webhook
     response = event_handler(event)
-  File "/app/checkout/webhook_handler.py", line 54, in handle_payment_intent_succeeded
-    billing_details = intent.charges.data[0].billing_details
-  File "/app/.heroku/python/lib/python3.11/site-packages/stripe/stripe_object.py", line 140, in __getattr__
-    raise AttributeError(*err.args)
-Exception Type: AttributeError at /checkout/wh/
-Exception Value: charges
+  File "/app/checkout/webhook_handler.py", line 55, in handle_payment_intent_succeeded
+    stripe_charge = stripe.Charge.retrieve(
+Exception Type: NameError at /checkout/wh/
+Exception Value: name &#x27;stripe&#x27; is not defined
 </textarea>
   <br><br>
   <input type="submit" value="Share this traceback on a public website">
@@ -1753,7 +1128,7 @@ Exception Value: charges
       
         <tr>
           <td>HTTP_CONNECT_TIME</td>
-          <td class="code"><pre>&#x27;0&#x27;</pre></td>
+          <td class="code"><pre>&#x27;1&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -1783,7 +1158,7 @@ Exception Value: charges
       
         <tr>
           <td>HTTP_X_FORWARDED_FOR</td>
-          <td class="code"><pre>&#x27;54.187.205.235&#x27;</pre></td>
+          <td class="code"><pre>&#x27;54.187.216.72&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -1798,12 +1173,12 @@ Exception Value: charges
       
         <tr>
           <td>HTTP_X_REQUEST_ID</td>
-          <td class="code"><pre>&#x27;f9ce4376-1c40-4920-967b-a4e39d2c0c01&#x27;</pre></td>
+          <td class="code"><pre>&#x27;7a26201a-3ba9-43ba-8b14-afb7b18153d2&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>HTTP_X_REQUEST_START</td>
-          <td class="code"><pre>&#x27;1705431296299&#x27;</pre></td>
+          <td class="code"><pre>&#x27;1705432604067&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -1823,12 +1198,12 @@ Exception Value: charges
       
         <tr>
           <td>REMOTE_ADDR</td>
-          <td class="code"><pre>&#x27;10.1.33.211&#x27;</pre></td>
+          <td class="code"><pre>&#x27;10.1.26.63&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>REMOTE_PORT</td>
-          <td class="code"><pre>&#x27;16007&#x27;</pre></td>
+          <td class="code"><pre>&#x27;11165&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -1848,7 +1223,7 @@ Exception Value: charges
       
         <tr>
           <td>SERVER_PORT</td>
-          <td class="code"><pre>&#x27;6176&#x27;</pre></td>
+          <td class="code"><pre>&#x27;23916&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -1863,12 +1238,12 @@ Exception Value: charges
       
         <tr>
           <td>gunicorn.socket</td>
-          <td class="code"><pre>&lt;socket.socket fd=10, family=2, type=1, proto=0, laddr=(&#x27;172.16.16.130&#x27;, 6176), raddr=(&#x27;10.1.33.211&#x27;, 16007)&gt;</pre></td>
+          <td class="code"><pre>&lt;socket.socket fd=10, family=2, type=1, proto=0, laddr=(&#x27;172.17.123.162&#x27;, 23916), raddr=(&#x27;10.1.26.63&#x27;, 11165)&gt;</pre></td>
         </tr>
       
         <tr>
           <td>wsgi.errors</td>
-          <td class="code"><pre>&lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f4f625d7b80&gt;</pre></td>
+          <td class="code"><pre>&lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fe3d71b3eb0&gt;</pre></td>
         </tr>
       
         <tr>
@@ -1878,7 +1253,7 @@ Exception Value: charges
       
         <tr>
           <td>wsgi.input</td>
-          <td class="code"><pre>&lt;gunicorn.http.body.Body object at 0x7f4f61dfeed0&gt;</pre></td>
+          <td class="code"><pre>&lt;gunicorn.http.body.Body object at 0x7fe3d870bed0&gt;</pre></td>
         </tr>
       
         <tr>
@@ -2577,4 +1952,395 @@ Exception Value: charges
       
         <tr>
           <td>LOGOUT_REDIRECT_URL</td>
-          <td class="code"><p...
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MANAGERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIAFILES_LOCATION</td>
+          <td class="code"><pre>&#x27;media&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_ROOT</td>
+          <td class="code"><pre>&#x27;/app/media&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_URL</td>
+          <td class="code"><pre>&#x27;https://drips-by-salmz.s3.amazonaws.com/media/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MESSAGE_STORAGE</td>
+          <td class="code"><pre>&#x27;django.contrib.messages.storage.session.SessionStorage&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIDDLEWARE</td>
+          <td class="code"><pre>[&#x27;django.middleware.security.SecurityMiddleware&#x27;,
+ &#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;,
+ &#x27;django.middleware.common.CommonMiddleware&#x27;,
+ &#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;,
+ &#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;,
+ &#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;,
+ &#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIGRATION_MODULES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MONTH_DAY_FORMAT</td>
+          <td class="code"><pre>&#x27;F j&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_GROUPING</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_HASHERS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PREPEND_WWW</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ROOT_URLCONF</td>
+          <td class="code"><pre>&#x27;drip_salmz.urls&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECRET_KEY</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_BROWSER_XSS_FILTER</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_CONTENT_TYPE_NOSNIFF</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_INCLUDE_SUBDOMAINS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_PRELOAD</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_SECONDS</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_PROXY_SSL_HEADER</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_REDIRECT_EXEMPT</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_REFERRER_POLICY</td>
+          <td class="code"><pre>&#x27;same-origin&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_SSL_HOST</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_SSL_REDIRECT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_EMAIL</td>
+          <td class="code"><pre>&#x27;root@localhost&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_CACHE_ALIAS</td>
+          <td class="code"><pre>&#x27;default&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_AGE</td>
+          <td class="code"><pre>1209600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_NAME</td>
+          <td class="code"><pre>&#x27;sessionid&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_PATH</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SAMESITE</td>
+          <td class="code"><pre>&#x27;Lax&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_ENGINE</td>
+          <td class="code"><pre>&#x27;django.contrib.sessions.backends.db&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_FILE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SAVE_EVERY_REQUEST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SERIALIZER</td>
+          <td class="code"><pre>&#x27;django.contrib.sessions.serializers.JSONSerializer&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SETTINGS_MODULE</td>
+          <td class="code"><pre>&#x27;drip_salmz.settings&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATETIME_FORMAT</td>
+          <td class="code"><pre>&#x27;m/d/Y P&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATE_FORMAT</td>
+          <td class="code"><pre>&#x27;m/d/Y&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SIGNING_BACKEND</td>
+          <td class="code"><pre>&#x27;django.core.signing.TimestampSigner&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SILENCED_SYSTEM_CHECKS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SITE_ID</td>
+          <td class="code"><pre>1</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STANDARD_DELIVERY_PERCENTAGE</td>
+          <td class="code"><pre>10</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_DIRS</td>
+          <td class="code"><pre>(&#x27;/app/static&#x27;,)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_FINDERS</td>
+          <td class="code"><pre>[&#x27;django.contrib.staticfiles.finders.FileSystemFinder&#x27;,
+ &#x27;django.contrib.staticfiles.finders.AppDirectoriesFinder&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_LOCATION</td>
+          <td class="code"><pre>&#x27;static&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_STORAGE</td>
+          <td class="code"><pre>&#x27;custom_storages.StaticStorage&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_ROOT</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_URL</td>
+          <td class="code"><pre>&#x27;https://drips-by-salmz.s3.amazonaws.com/static/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STRIPE_CURRENCY</td>
+          <td class="code"><pre>&#x27;gbp&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STRIPE_PUBLIC_KEY</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STRIPE_SECRET_KEY</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STRIPE_WH_SECRET</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATES</td>
+          <td class="code"><pre>[{&#x27;APP_DIRS&#x27;: True,
+  &#x27;BACKEND&#x27;: &#x27;django.template.backends.django.DjangoTemplates&#x27;,
+  &#x27;DIRS&#x27;: [&#x27;/app/templates&#x27;, &#x27;/app/templates/allauth&#x27;],
+  &#x27;OPTIONS&#x27;: {&#x27;builtins&#x27;: [&#x27;crispy_forms.templatetags.crispy_forms_tags&#x27;,
+                           &#x27;crispy_forms.templatetags.crispy_forms_field&#x27;],
+              &#x27;context_processors&#x27;: [&#x27;django.template.context_processors.debug&#x27;,
+                                     &#x27;django.template.context_processors.request&#x27;,
+                                     &#x27;django.contrib.auth.context_processors.auth&#x27;,
+                                     &#x27;django.contrib.messages.context_processors.messages&#x27;,
+                                     &#x27;django.template.context_processors.media&#x27;,
+                                     &#x27;bag.contexts.bag_contents&#x27;]}}]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_NON_SERIALIZED_APPS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_RUNNER</td>
+          <td class="code"><pre>&#x27;django.test.runner.DiscoverRunner&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>&#x27;,&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_FORMAT</td>
+          <td class="code"><pre>&#x27;P&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_INPUT_FORMATS</td>
+          <td class="code"><pre>[&#x27;%H:%M:%S&#x27;, &#x27;%H:%M:%S.%f&#x27;, &#x27;%H:%M&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_ZONE</td>
+          <td class="code"><pre>&#x27;UTC&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_I18N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_L10N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_TZ</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_HOST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_PORT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WSGI_APPLICATION</td>
+          <td class="code"><pre>&#x27;drip_salmz.wsgi.application&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>X_FRAME_OPTIONS</td>
+          <td class="code"><pre>&#x27;DENY&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YEAR_MONTH_FORMAT</td>
+          <td class="code"><pre>&#x27;F Y&#x27;</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+  <div id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in your
+      Django settings file. Change that to <code>False</code>, and Django will
+      display a standard page generated by the handler for this status code.
+    </p>
+  </div>
+</body>
+</html>
