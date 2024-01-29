@@ -38,6 +38,7 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(categories__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+            print(category)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -86,10 +87,33 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
+
+            # Check if the added product is a shoe
+            if product.is_shoe:
+                shoe_size = request.POST.get('shoe_size')
+                quantity = int(request.POST.get('quantity', 1))
+
+                # Update the shopping bag with the shoe size
+                bag = request.session.get('bag', {})
+                items_by_size = bag.setdefault(str(product.id), {}).setdefault('items_by_size', {})
+                
+                if shoe_size in items_by_size:
+                    items_by_size[shoe_size] += quantity
+                    messages.success(request,
+                                     f'Added shoe size {shoe_size.upper()} '
+                                     f'{product.name} to your bag')
+                else:
+                    items_by_size[shoe_size] = quantity
+                    messages.success(request,
+                                     f'Added shoe size {shoe_size.upper()} '
+                                     f'{product.name} to your bag')
+
+                request.session['bag'] = bag
+
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'failed to add, ensure the form is valid.')
+            messages.error(request, 'Failed to add, ensure the form is valid.')
     else:
         form = ProductForm()
 
@@ -99,6 +123,7 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
 
 
 @login_required
@@ -111,6 +136,10 @@ def edit_product(request, product_id):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
+            # Set the product's categories based on the selected ones in the form
+            selected_categories = request.POST.getlist('categories')
+            product.categories.set(selected_categories)
+
             form.save()
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
@@ -127,6 +156,8 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
+
 
 
 @login_required

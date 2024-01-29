@@ -6,6 +6,7 @@ from django.contrib import messages
 from products.models import Product
 
 
+
 def view_bag(request):
     """ A view that renders the bag contents page """
 
@@ -14,16 +15,19 @@ def view_bag(request):
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
-
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    print(f"DEBUG")
+    print(request.POST)
+    size = request.POST.get('product_size')  # Use 'product_size' directly
+
     bag = request.session.get('bag', {})
 
+    print(f"DEBUG: Adding item to bag - Item ID: {item_id}, Quantity: {quantity}, Size: {size}")
+
     if size:
+        print("DEBUG: If items are clothes")
         if item_id in list(bag.keys()):
             if size in bag[item_id]['items_by_size'].keys():
                 bag[item_id]['items_by_size'][size] += quantity
@@ -41,18 +45,47 @@ def add_to_bag(request, item_id):
             messages.success(request,
                              (f'Added size {size.upper()} '
                               f'{product.name} to your bag'))
+    elif 'shoe_sizes' in request.POST:
+            size = request.POST.get('shoe_sizes')  # Use 'shoe_size' for shoes
+            bag = request.session.get('bag', {})
+
+            print(f"DEBUG: Adding shoe to bag - Item ID: {item_id}, Quantity: {quantity}, Size: {size}")
+
+            if item_id in list(bag.keys()):
+                print("DEBUG: Changing item quantity")
+                if size in bag[item_id]['items_by_size'].keys():
+                    bag[item_id]['items_by_size'][size] += quantity
+                    messages.success(request,
+                                     (f'Updated size {size} '
+                                      f'{product.name} quantity to '
+                                      f'{bag[item_id]["items_by_size"][size]}'))
+                else:
+                    bag[item_id]['items_by_size'][size] = quantity
+                    messages.success(request,
+                                     (f'Added size {size} '
+                                      f'{product.name} to your bag'))
+            else:
+                bag[item_id] = {'items_by_size': {size: quantity}}
+                messages.success(request,
+                                 (f'Added size {size} '
+                                  f'{product.name} to your bag'))
     else:
         if item_id in list(bag.keys()):
+            print("DEBUG: Updating quantity for general item")
             bag[item_id] += quantity
             messages.success(request,
                              (f'Updated {product.name} '
                               f'quantity to {bag[item_id]}'))
         else:
+            print("DEBUG: Adding general item to bag")
             bag[item_id] = quantity
             messages.success(request, f'Added {product.name} to your bag')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
+    print("DEBUG: Execution completed")
+
+
 
 
 def adjust_bag(request, item_id):

@@ -47,13 +47,15 @@
                 {% for item in order.lineitems.all %}
                     <div class="row">
                         <div class="col-12 col-md-4">
-                            <p class="mb-0 c--light-blue">{{ item.product.name }}{% if item.product_size %} - Size {{ item.product.shoe_size|upper }} {% endif %}</p>
+                            <p class="mb-0 c--light-blue">Product Name:{{ item.product.name }}</p>
+                            <p>Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}{{ item.size }}{% endif %}</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ item.quantity }} @ ${{ item.product.price }} each</p>
                         </div>
                     </div>
                 {% endfor %}
+               
 
                 <div class="row">
                     <div class="col-12 col-md-4">
