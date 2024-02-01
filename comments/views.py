@@ -25,7 +25,7 @@ def show_comments(request):
 def add_comment(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     user_comments = Comment.objects.filter(
-                                          author=request.user, product=product)
+        author=request.user, product=product)
 
     if user_comments:
         messages.error(request, 'Review already submitted')
@@ -124,7 +124,3 @@ def update_comment(product):
         product.rating = ratings_sum / nr_of_total_comments
 
     product.save()
-
-
-
-

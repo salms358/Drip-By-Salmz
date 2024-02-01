@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 
 class Category(models.Model):
@@ -33,35 +34,34 @@ class Product(models.Model):
                                          related_name='favorite_products',
                                          blank=True)
     shoe_size = models.IntegerField(
-        null = True,
-        blank = True,
+        null=True,
+        blank=True,
     )
 
     product_size = models.CharField(
-        max_length = 2,
-        null = True,
-        blank = True,
+        max_length=2,
+        null=True,
+        blank=True,
     )
 
     def __str__(self):
         return self.name
 
-class Meta:
-    constraints = [
-        models.CheckConstraint(
-            check=models.Q(has_sizes=True, is_shoe=False) | models.Q(has_sizes=False, is_shoe=True),
-            name='one_of_has_sizes_or_is_shoe'
-        ),
-        models.UniqueConstraint(
-            fields=['has_sizes', 'is_shoe'],
-            condition=models.Q(has_sizes=True, is_shoe=True),
-            name='unique_has_sizes_and_is_shoe'
-        ),
-    ]
+    class Meta:
+        constraints = [
+            models.CheckConstraint(
+                check=models.Q(has_sizes=True) |
+                models.Q(is_shoe=True) |
+                models.Q(has_sizes=False, is_shoe=False),
+                name='one_of_has_sizes_or_is_shoe'
+            ),
+        ]
+
+    def clean(self):
+        if self.has_sizes and self.is_shoe:
+            raise ValidationError(
+                'A product cannot have sizes and be a shoe at the same time.')
 
     def save(self, *args, **kwargs):
-        if self.has_sizes and self.is_shoe or not self.has_sizes and not self.is_shoe:
-            raise IntegrityError('Only one of the 2 sizes can be True')
-
-        
+        self.clean()
         super().save(*args, **kwargs)

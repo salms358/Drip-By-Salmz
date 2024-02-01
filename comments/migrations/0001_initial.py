@@ -19,13 +19,35 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Comment',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('content', models.TextField()),
-                ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('rating', models.IntegerField(validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)])),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='product_reviews', to=settings.AUTH_USER_MODEL)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='reviews', to='products.product')),
+                ('id',
+                 models.BigAutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('title',
+                 models.CharField(
+                     max_length=200)),
+                ('content',
+                 models.TextField()),
+                ('created_on',
+                 models.DateTimeField(
+                     auto_now_add=True)),
+                ('rating',
+                 models.IntegerField(
+                     validators=[
+                         django.core.validators.MinValueValidator(1),
+                         django.core.validators.MaxValueValidator(5)])),
+                ('author',
+                 models.ForeignKey(
+                     on_delete=django.db.models.deletion.CASCADE,
+                     related_name='product_reviews',
+                     to=settings.AUTH_USER_MODEL)),
+                ('product',
+                 models.ForeignKey(
+                     on_delete=django.db.models.deletion.CASCADE,
+                     related_name='reviews',
+                     to='products.product')),
             ],
             options={
                 'ordering': ['-created_on'],

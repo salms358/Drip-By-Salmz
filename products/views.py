@@ -60,7 +60,6 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-
 def product_detail(request, product_id):
     """ A view to show individual product details """
 
@@ -94,8 +93,9 @@ def add_product(request):
 
                 # Update the shopping bag with the shoe size
                 bag = request.session.get('bag', {})
-                items_by_size = bag.setdefault(str(product.id), {}).setdefault('items_by_size', {})
-                
+                items_by_size = bag.setdefault(
+                    str(product.id), {}).setdefault('items_by_size', {})
+
                 if shoe_size in items_by_size:
                     items_by_size[shoe_size] += quantity
                     messages.success(request,
@@ -124,7 +124,6 @@ def add_product(request):
     return render(request, template, context)
 
 
-
 @login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
@@ -135,7 +134,8 @@ def edit_product(request, product_id):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
-            # Set the product's categories based on the selected ones in the form
+            # Set the product's categories based on the selected ones in the
+            # form
             selected_categories = request.POST.getlist('categories')
             product.categories.set(selected_categories)
 
@@ -155,8 +155,6 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
-
-
 
 
 @login_required

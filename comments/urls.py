@@ -3,12 +3,12 @@ from .import views
 
 urlpatterns = [
     path('', views.show_comments, name='comments'),
-    path('add_comment/<int:product_id>/', 
-          views.add_comment, 
-          name='add_comment'),
-    path('edit_comment/<int:comment_id>/', 
-          views.edit_comment, 
-          name='edit_comment'),
+    path('add_comment/<int:product_id>/',
+         views.add_comment,
+         name='add_comment'),
+    path('edit_comment/<int:comment_id>/',
+         views.edit_comment,
+         name='edit_comment'),
 
     path('delete_comment/<int:comment_id>/',
          views.delete_comment,

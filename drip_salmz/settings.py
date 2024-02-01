@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import dj_database_url
 import os
 if os.path.exists("env.py"):
-    import env 
+    import env
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,17 +27,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEBUG' in os.environ
 
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['8000-salms358-dripbysalmz-d98mwzazhhx.ws-eu107.gitpod.io', 'dripzs-by-salmz-006e3a5f6351.herokuapp.com', 'localhost']
-
-
-
-
-
-
+ALLOWED_HOSTS = [
+    '8000-salms358-dripbysalmz-d98mwzazhhx.ws-eu107.gitpod.io',
+    'dripzs-by-salmz-006e3a5f6351.herokuapp.com',
+    'localhost']
 
 
 # Application definition
@@ -93,7 +89,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+                'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
@@ -114,11 +110,10 @@ AUTHENTICATION_BACKENDS = (
 
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
-    
+
 )
 
 SITE_ID = 1
-
 
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
@@ -147,8 +142,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-    
-
 
 
 # Password validation
@@ -219,8 +212,6 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
- 
-
 
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
@@ -229,7 +220,6 @@ STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-
 
 
 if 'DEVELOPMENT' in os.environ:
