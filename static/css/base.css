@@ -8,9 +8,10 @@ body {
     height: calc(100vh - 140px);
     color: #555;
     font-family: 'Lato'; 
-  
- 
+}
 
+#padding {
+    padding-bottom: 50px;
 }
 
 #liked {
@@ -81,8 +82,12 @@ body {
     background: #000 !important;
 }
 h2 {
-    margin-top: 400px;
+    margin-top: 200px;
     text-align: center;
+}
+
+#homes {
+    margin-top: 400px;
 }
 
 form {
@@ -291,17 +296,10 @@ input[name='q']::placeholder {
         left: 0;
         z-index: 1030;
     }
-
-    .header-container {
-        padding-top: 164px;
-    }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
-    }
 
     body {
         height: calc(100vh - 116px);
