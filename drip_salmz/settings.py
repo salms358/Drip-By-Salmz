@@ -31,7 +31,7 @@ DEBUG = 'DEBUG' in os.environ
 
 
 ALLOWED_HOSTS = [
-    '8000-salms358-dripbysalmz-d98mwzazhhx.ws-eu107.gitpod.io',
+    '8000-salms358-dripbysalmz-d98mwzazhhx.ws-eu108.gitpod.io',
     'dripzs-by-salmz-006e3a5f6351.herokuapp.com',
     'localhost']
 
@@ -118,7 +118,7 @@ SITE_ID = 1
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
