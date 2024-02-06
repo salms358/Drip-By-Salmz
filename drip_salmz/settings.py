@@ -31,7 +31,7 @@ DEBUG = 'DEBUG' in os.environ
 
 
 ALLOWED_HOSTS = [
-    '8000-salms358-dripbysalmz-d98mwzazhhx.ws-eu108.gitpod.io',
+    '8000-salms358-dripbysalmz-alpvcc9e98u.ws-eu108.gitpod.io',
     'dripzs-by-salmz-006e3a5f6351.herokuapp.com',
     'localhost']
 

@@ -39,7 +39,7 @@ class Product(models.Model):
     )
 
     product_size = models.CharField(
-        max_length=2,
+        max_length=15,
         null=True,
         blank=True,
     )
