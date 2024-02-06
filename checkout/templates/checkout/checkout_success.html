@@ -49,7 +49,7 @@
                         <div class="col-12 col-md-4">
                             <p class="mb-0 c--light-blue">Product Name:{{ item.product.name }}</p>
                                         <p>   Size: {% if item.product.has_sizes %}
-                                                        {{ item.product.product_size }}
+                                                        {{ item.size }}
                                                     {% elif item.product.is_shoe %}
                                                         {{ item.size }}
                                                     {% else %}

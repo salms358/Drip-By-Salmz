@@ -49,7 +49,7 @@
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                       
                                         <p>   Size: {% if item.product.has_sizes %}
-                                                        {{ item.product.product_size }}
+                                                        {{ item.size }}
                                                     {% elif item.product.is_shoe %}
                                                         {{ item.size }}
                                                     {% else %}
