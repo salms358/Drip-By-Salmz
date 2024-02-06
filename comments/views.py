@@ -102,7 +102,6 @@ def delete_comment(request, comment_id):
 
     comment.delete()
     messages.success(request, 'Your comment has been deleted!')
-    print('COMMENT', comment)
     update_comment(comment.product)
 
     return redirect(reverse('product_detail', args=[comment.product.id]))
