@@ -11,20 +11,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveConstraint(
-            model_name='product',
-            name='one_of_has_sizes_or_is_shoe',
-        ),
-        migrations.RemoveConstraint(
-            model_name='product',
-            name='unique_has_sizes_and_is_shoe',
-        ),
-        migrations.AlterField(
-            model_name='product',
-            name='product_size',
-            field=models.CharField(blank=True, max_length=10, null=True),
-        ),
-        migrations.AddConstraint(
-            model_name='product',
-            constraint=models.CheckConstraint(check=models.Q(('has_sizes', True), ('is_shoe', True), models.Q(('has_sizes', False), ('is_shoe', False)), _connector='OR'), name='one_of_has_sizes_or_is_shoe'),
-        ),
-    ]
+            model_name='product', name='one_of_has_sizes_or_is_shoe', ), migrations.RemoveConstraint(
+            model_name='product', name='unique_has_sizes_and_is_shoe', ), migrations.AlterField(
+                model_name='product', name='product_size', field=models.CharField(
+                    blank=True, max_length=10, null=True), ), migrations.AddConstraint(
+                        model_name='product', constraint=models.CheckConstraint(
+                            check=models.Q(
+                                ('has_sizes', True), ('is_shoe', True), models.Q(
+                                    ('has_sizes', False), ('is_shoe', False)), _connector='OR'), name='one_of_has_sizes_or_is_shoe'), ), ]

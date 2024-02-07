@@ -5,6 +5,12 @@ from django.core.exceptions import ValidationError
 
 
 class ProductForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['categories'].queryset = Category.objects.all()  # Corrected queryset here
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black rounded-0'
+
     class Meta:
         model = Product
         fields = '__all__'
@@ -13,16 +19,12 @@ class ProductForm(forms.ModelForm):
         label='Image',
         required=False,
         widget=CustomClearableFileInput)
+
     categories = forms.ModelMultipleChoiceField(
-        queryset=Category.objects.all(),
+        queryset=Category.objects.all(),  # You can remove this queryset definition since it's overridden in __init__
         widget=forms.CheckboxSelectMultiple,
         required=False
     )
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
 
     def clean(self):
         cleaned_data = super().clean()
@@ -31,6 +33,6 @@ class ProductForm(forms.ModelForm):
 
         if is_shoe and has_sizes:
             raise ValidationError(
-                "product cannot have 2 types of sizes at the same time.")
+                "A product cannot have both types of sizes at the same time.")
 
         return cleaned_data

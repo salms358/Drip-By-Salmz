@@ -33,7 +33,7 @@ class Product(models.Model):
     users_likes = models.ManyToManyField(User,
                                          related_name='favorite_products',
                                          blank=True)
-    shoe_size = models.IntegerField (
+    shoe_size = models.IntegerField(
         null=True,
         blank=True,
     )

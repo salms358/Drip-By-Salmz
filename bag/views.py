@@ -21,8 +21,6 @@ def add_to_bag(request, item_id):
 
     bag = request.session.get('bag', {})
 
-
-
     if size:
         if item_id in list(bag.keys()):
             if size in bag[item_id]['items_by_size'].keys():
@@ -44,7 +42,6 @@ def add_to_bag(request, item_id):
     elif 'shoe_sizes' in request.POST:
         size = request.POST.get('shoe_sizes')  # Use 'shoe_size' for shoes
         bag = request.session.get('bag', {})
-
 
         if item_id in list(bag.keys()):
             if size in bag[item_id]['items_by_size'].keys():
