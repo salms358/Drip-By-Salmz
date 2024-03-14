@@ -78,41 +78,19 @@ def product_detail(request, product_id):
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only superusers have access to this!')
-        return redirect(reverse, ('home'))
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-
-            # Check if the added product is a shoe
-            if product.is_shoe:
-                shoe_size = request.POST.get('shoe_size')
-                quantity = int(request.POST.get('quantity', 1))
-
-                # Update the shopping bag with the shoe size
-                bag = request.session.get('bag', {})
-                items_by_size = bag.setdefault(
-                    str(product.id), {}).setdefault('items_by_size', {})
-
-                if shoe_size in items_by_size:
-                    items_by_size[shoe_size] += quantity
-                    messages.success(request,
-                                     f'Added shoe size {shoe_size.upper()} '
-                                     f'{product.name} to your bag')
-                else:
-                    items_by_size[shoe_size] = quantity
-                    messages.success(request,
-                                     f'Added shoe size {shoe_size.upper()} '
-                                     f'{product.name} to your bag')
-
-                request.session['bag'] = bag
-
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add, ensure the form is valid.')
+            messages.error(request,
+                           ('Failed to add product. '
+                            'Please ensure the form is valid.'))
     else:
         form = ProductForm()
 
@@ -122,6 +100,7 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
 
 
 @login_required
