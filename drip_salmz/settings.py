@@ -32,7 +32,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-salms358-dripbysalmz-0yzg5yh0jwp.ws-eu110.gitpod.io',
-    #'dripzs-by-salmz-006e3a5f6351.herokuapp.com','localhost'
+    'dripzs-by-salmz-006e3a5f6351.herokuapp.com','localhost'
      ]
 
 
