@@ -7,7 +7,8 @@ from django.core.exceptions import ValidationError
 class ProductForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['categories'].queryset = Category.objects.all()  # Corrected queryset here
+        # Corrected queryset here
+        self.fields['categories'].queryset = Category.objects.all()
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
 
@@ -21,7 +22,9 @@ class ProductForm(forms.ModelForm):
         widget=CustomClearableFileInput)
 
     categories = forms.ModelMultipleChoiceField(
-        queryset=Category.objects.all(),  # You can remove this queryset definition since it's overridden in __init__
+        queryset=Category.objects.all(),
+        # You can remove this queryset definition since it's overridden in
+        # __init__
         widget=forms.CheckboxSelectMultiple,
         required=False
     )
