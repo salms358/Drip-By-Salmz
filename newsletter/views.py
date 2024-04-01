@@ -26,6 +26,7 @@ def newsletter(request):
 
 def newsletter_success(request):
     """
+    When user has successfully subscribed
     """
     latest_subscriber = Subscriber.objects.order_by('-subscribed_at').first()
     return render(request, 'newsletter/newsletter_success.html',
