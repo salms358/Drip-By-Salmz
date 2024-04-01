@@ -537,13 +537,13 @@ Cancel Button | Clicking the button redirects to the products page. | Pass |
 
 ## Resubmissions
 
-- Initially when the admin made a new product it would be added twice to the basket which i didnt realiose initially. It was a quick fix as the logic that addewd the product twice had to be removed. I didnt realise that this happened.
+- Initially when the admin made a new product it would be added twice to the basket which i didnt realise initially. It was a quick fix as the logic that addewd the product twice had to be removed. I didnt realise that this happened.
 
 - I liked the idea of the colour scheme even though it resembled that of the Boutique Ado project. I have no intention of copying the project.
 
 - Debug has now been set to False. Small error costed my entire project
 
-- The errors from the failed prject have been resolved as now the confirmation emails should work. The payments should show correctly on the Admin control panel now.
+- The errors from the failed project have been resolved as now the confirmation emails should work. The payments should show correctly on the Admin control panel now.
 
 
 
