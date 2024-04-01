@@ -10,14 +10,23 @@ from comments.models import Comment
 # Create your views here.
 
 
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.contrib import messages
+from django.db.models.functions import Lower
+from django.db.models import Q
+from .models import Product, Category
+
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
     query = None
-    categories = None
     sort = None
     direction = None
+
+    # Retrieve all categories
+    categories = Category.objects.all()
 
     if request.GET:
         if 'sort' in request.GET:
@@ -35,9 +44,8 @@ def all_products(request):
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            products = products.filter(categories__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+            selected_categories = request.GET.getlist('category')
+            products = products.filter(categories__name__in=selected_categories)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -48,10 +56,18 @@ def all_products(request):
                        Q(description__icontains=query))
             products = products.filter(queries)
 
+    # Create a dictionary to store unique products based on primary key
+    unique_products_dict = {}
+    for product in products:
+        unique_products_dict[product.pk] = product
+
+    # Retrieve unique products from the dictionary
+    unique_products = list(unique_products_dict.values())
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
-        'products': products,
+        'products': unique_products,
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
