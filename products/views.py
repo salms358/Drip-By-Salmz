@@ -66,7 +66,8 @@ def all_products(request):
             query = request.GET['q']
             if query:
                 # Filter products by name or description containing the query
-                queries = (Q(name__icontains=query) | Q(description__icontains=query))
+                queries = (Q(name__icontains=query) |
+                           Q(description__icontains=query))
                 products = products.filter(queries)
             else:
                 messages.error(request, "You didn't enter a search criteria!")
