@@ -545,7 +545,7 @@ Cancel Button | Clicking the button redirects to the products page. | Pass |
 
 - The errors from the failed project have been resolved as now the confirmation emails should work. The payments should show correctly on the Admin control panel now.
 
-
+- Default image in place when image is not added to product
 
 ## Deployment
  

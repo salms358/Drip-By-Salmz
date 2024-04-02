@@ -23,10 +23,7 @@ from django.db.models import Q
 
 
 def all_products(request):
-
     """ A view to show all products, including sorting and search queries """
-
-
 
     products = Product.objects.all()
 
@@ -38,13 +35,9 @@ def all_products(request):
 
     direction = None
 
-
-
     # Retrieve all categories
 
     categories = Category.objects.all()
-
-
 
     if request.GET:
 
@@ -74,8 +67,6 @@ def all_products(request):
 
             products = products.order_by(sortkey)
 
-
-
         if 'category' in request.GET:
 
             categories = request.GET['category'].split(',')
@@ -92,8 +83,6 @@ def all_products(request):
 
         unique_products_dict[product.pk] = product
 
-
-
         if 'q' in request.GET:
 
             query = request.GET['q']
@@ -109,12 +98,10 @@ def all_products(request):
                        Q(description__icontains=query))
 
             products = products.filter(queries)
-    
+
     unique_products = list(unique_products_dict.values())
-    
+
     current_sorting = f'{sort}_{direction}'
-
-
 
     context = {
 
@@ -127,8 +114,6 @@ def all_products(request):
         'current_sorting': current_sorting,
 
     }
-
-
 
     return render(request, 'products/products.html', context)
 
