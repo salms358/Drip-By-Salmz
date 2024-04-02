@@ -23,96 +23,69 @@ from django.db.models import Q
 
 
 def all_products(request):
-    """ A view to show all products, including sorting and search queries """
+    """A view to show all products, including sorting and search queries."""
 
+    # Retrieve all products
     products = Product.objects.all()
 
+    # Initialize variables
     query = None
-
     categories = None
-
     sort = None
-
     direction = None
 
     # Retrieve all categories
-
     categories = Category.objects.all()
 
+    # Check if there's a GET request
     if request.GET:
 
+        # Handle sorting
         if 'sort' in request.GET:
-
             sortkey = request.GET['sort']
-
             sort = sortkey
-
             if sortkey == 'name':
-
                 sortkey = 'lower_name'
-
                 products = products.annotate(lower_name=Lower('name'))
-
             if sortkey == 'category':
-
                 sortkey = 'category__name'
-
             if 'direction' in request.GET:
-
                 direction = request.GET['direction']
-
                 if direction == 'desc':
-
                     sortkey = f'-{sortkey}'
-
             products = products.order_by(sortkey)
 
+        # Handle category filtering
         if 'category' in request.GET:
-
             categories = request.GET['category'].split(',')
-
             products = products.filter(categories__name__in=categories)
-
             categories = Category.objects.filter(name__in=categories)
 
-    # Create a dictionary to store unique products based on primary key
-
-    unique_products_dict = {}
-
-    for product in products:
-
-        unique_products_dict[product.pk] = product
-
+        # Handle search query
         if 'q' in request.GET:
-
             query = request.GET['q']
-
-            if not query:
-
+            if query:
+                # Filter products by name or description containing the query
+                queries = (Q(name__icontains=query) | Q(description__icontains=query))
+                products = products.filter(queries)
+            else:
                 messages.error(request, "You didn't enter a search criteria!")
+                return redirect('products')
 
-                return redirect(reverse('products'))
-
-            queries = (Q(name__icontains=query) |
-
-                       Q(description__icontains=query))
-
-            products = products.filter(queries)
+    # Create a dictionary to store unique products based on primary key
+    unique_products_dict = {}
+    for product in products:
+        unique_products_dict[product.pk] = product
 
     unique_products = list(unique_products_dict.values())
 
+    # Construct context data
     current_sorting = f'{sort}_{direction}'
-
     context = {
-
         'products': unique_products,
-
         'search_term': query,
-
         'current_categories': categories,
-
         'current_sorting': current_sorting,
-
     }
 
     return render(request, 'products/products.html', context)
